@@ -14,7 +14,8 @@ public class Address extends BaseEntity {
     public Address() {
     }
 
-    @ManyToOne(targetEntity = City.class)
+    @ManyToOne(targetEntity = City.class,
+            cascade = CascadeType.ALL)
     @JoinColumn(name = "city_id")
     public City getCity() {
         return city;

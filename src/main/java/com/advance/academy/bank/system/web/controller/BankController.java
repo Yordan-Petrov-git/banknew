@@ -13,6 +13,7 @@ public class BankController {
 
     private final BankServiceImpl bankService;
 
+
     @Autowired
     public BankController(BankServiceImpl bankService) {
         this.bankService = bankService;
@@ -21,7 +22,17 @@ public class BankController {
 
     @PostMapping
     public void createBank(@RequestBody Bank bank) {
+        validateBank(bank);
+        if (null != bank.getAddress()) {
+
+        }
         bankService.createBank(bank);
+    }
+
+    private void validateBank(Bank bank) {
+        if (null == bank.getAddress()) {
+            throw new IllegalArgumentException("Invalid bank address");
+        }
     }
 
     @PutMapping
