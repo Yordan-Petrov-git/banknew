@@ -18,7 +18,7 @@ public class BankServiceImpl implements BankService {
 
     @Override
     public void createBank(Bank bank) {
-           bankRepository.save(bank);
+           bankRepository.saveAndFlush(bank);
     }
 
     @Override
