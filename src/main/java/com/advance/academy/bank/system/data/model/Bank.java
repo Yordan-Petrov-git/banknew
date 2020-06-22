@@ -24,7 +24,8 @@ public class Bank extends BaseEntity {
         this.name = name;
     }
 
-    @ManyToOne(targetEntity = Address.class,cascade = CascadeType.ALL)
+    @ManyToOne(targetEntity = Address.class,
+            cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     public Address getAddress() {
         return address;
