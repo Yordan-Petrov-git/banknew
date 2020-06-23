@@ -1,4 +1,7 @@
 package com.advance.academy.bank.system.data.model.dto;
 
-public class AddressDto {
+public class TransactionSeedDto {
+
+
+
 }

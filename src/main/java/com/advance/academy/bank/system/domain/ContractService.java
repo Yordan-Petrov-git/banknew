@@ -1,6 +1,6 @@
 package com.advance.academy.bank.system.domain;
 
-import com.advance.academy.bank.system.data.model.contract.Contract;
+import com.advance.academy.bank.system.data.model.Contract;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,7 +1,4 @@
-package com.advance.academy.bank.system.data.model.contract;
-
-import com.advance.academy.bank.system.data.model.Account;
-import com.advance.academy.bank.system.data.model.BaseEntity;
+package com.advance.academy.bank.system.data.model;
 
 import javax.persistence.*;
 import java.time.Instant;
@@ -17,6 +14,9 @@ public class Contract extends BaseEntity {
 
     public Contract() {
     }
+
+
+
 
     @ManyToOne
     @JoinColumn(name = "account_id")

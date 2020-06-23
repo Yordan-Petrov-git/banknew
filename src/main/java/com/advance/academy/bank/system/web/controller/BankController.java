@@ -22,10 +22,10 @@ public class BankController {
 
     @PostMapping
     public void createBank(@RequestBody Bank bank) {
-        validateBank(bank);
-        if (null != bank.getAddress()) {
-
-        }
+//        validateBank(bank);
+//        if (null != bank.getAddress()) {
+//
+//        }
         bankService.createBank(bank);
     }
 

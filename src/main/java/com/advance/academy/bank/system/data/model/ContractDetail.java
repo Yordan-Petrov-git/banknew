@@ -1,4 +1,4 @@
-package com.advance.academy.bank.system.data.model.contract;
+package com.advance.academy.bank.system.data.model;
 
 import com.advance.academy.bank.system.data.model.BaseEntity;
 import com.advance.academy.bank.system.data.model.enums.ContactType;
@@ -20,7 +20,6 @@ public class ContractDetail extends BaseEntity {
     private String additionalInfo;
 
     public ContractDetail() {
-
     }
 
     @Column(name = "principal")

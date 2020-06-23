@@ -3,6 +3,7 @@ package com.advance.academy.bank.system.domain.impl;
 import com.advance.academy.bank.system.data.model.Account;
 import com.advance.academy.bank.system.data.dao.AccountRepository;
 import com.advance.academy.bank.system.domain.AccountService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +14,11 @@ public class AccountServiceImpl implements AccountService {
 
 
     private final AccountRepository accountRepository;
+    private final ModelMapper modelMapper;
     @Autowired
-    public AccountServiceImpl(AccountRepository accountRepository) {
+    public AccountServiceImpl(AccountRepository accountRepository, ModelMapper modelMapper) {
         this.accountRepository = accountRepository;
+        this.modelMapper = modelMapper;
     }
 
     @Override

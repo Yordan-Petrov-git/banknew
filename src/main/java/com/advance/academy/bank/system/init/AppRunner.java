@@ -1,6 +1,7 @@
 package com.advance.academy.bank.system.init;
 
 import com.advance.academy.bank.system.data.model.*;
+import com.advance.academy.bank.system.data.model.dto.UserSeedDto;
 import com.advance.academy.bank.system.data.model.enums.UserType;
 import com.advance.academy.bank.system.exeption.IllegalBankOperationException;
 import com.advance.academy.bank.system.data.model.enums.AccountType;
@@ -42,27 +43,27 @@ public class AppRunner implements CommandLineRunner {
 //        Set<Account> acc = new HashSet<Account>();
 //        Set<Account> acc1 = new HashSet<Account>();
 //
-//
-//        User user = new User();
-//
-//        user.setFirstName("Ivan");
-//        user.setLastName("Ivanonv");
-//        user.setPhone("1234");
-//        user.setEgn("9999999999");
-//        user.setEmail("testEmail@gmail.com");
-//        user.setUserType(UserType.NONE);
-//        //user.setUserSubscriptions();
-//
+
+        UserSeedDto userSeedDto = new UserSeedDto();
+
+        userSeedDto.setFirstName("Ivan");
+        userSeedDto.setLastName("Ivanonv");
+        userSeedDto.setPhone("1234");
+        userSeedDto.setEgn("9999999999");
+        userSeedDto.setEmail("testEmail@gmail.com");
+        userSeedDto.setUserType(UserType.NONE);
+        //user.setUserSubscriptions();
+
 //        Account account = new Account();
 //        account.setIban("96262ad52a25a");
 //        account.setOwner(user);
 //        account.setAccountType(AccountType.CHECKING);
 //        account.setBalance(new BigDecimal(5000));
-//        //account.setCurrency();
-//
-////        //add accounts
-////        acc.add(account);
-////        user.setAccounts(acc);
+        //account.setCurrency();
+
+        //add accounts
+//        acc.add(account);
+//        user.setAccounts(acc);
 //
 //        User user1 = new User();
 //        user1.setFirstName("asd");
@@ -73,8 +74,8 @@ public class AppRunner implements CommandLineRunner {
 //        account1.setIban("asdasdsa3wer");
 //        account1.setBalance(new BigDecimal(1000));
 //
-////        acc1.add(account1);
-////        user1.setAccounts(acc1);
+//        acc1.add(account1);
+//        user1.setAccounts(acc1);
 //
 //
 //        Transaction transaction = new Transaction();
@@ -82,9 +83,9 @@ public class AppRunner implements CommandLineRunner {
 //        transaction.setRecipient(account1);
 //        transaction.setAmount(new BigDecimal(500));
 //        transaction.setDateCreated(Instant.now());
-//
-//        userService.createUser(user);
-//
+
+        userService.createUser(userSeedDto);
+
 //        userService.createUser(user1);
 //
 //        accountService.createAccount(account);
@@ -133,7 +134,7 @@ public class AppRunner implements CommandLineRunner {
 //        } catch (IllegalBankOperationException e) {
 //            log.error(e.getMessage());
 //        }
-
+//
 
     }
 }

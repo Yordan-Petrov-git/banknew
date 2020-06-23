@@ -90,7 +90,7 @@ public class User extends BaseEntity {
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "address_id", referencedColumnName = "id")
     )
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+ //   @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     public Set<Address> getAddresses() {
         return addresses;
     }
@@ -101,6 +101,7 @@ public class User extends BaseEntity {
 
     @OneToMany(targetEntity = Account.class
             , cascade = CascadeType.ALL)
+   // @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     public Set<Account> getAccounts() {
         return accounts;
     }

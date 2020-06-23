@@ -1,6 +1,8 @@
 package com.advance.academy.bank.system.web.controller;
 
 import com.advance.academy.bank.system.data.model.City;
+import com.advance.academy.bank.system.data.model.dto.CitySeedDto;
+import com.advance.academy.bank.system.data.model.dto.CityViewDto;
 import com.advance.academy.bank.system.domain.impl.CityServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -8,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/cities")
+    @RequestMapping("api/cities")
 public class CityController {
 
     private final CityServiceImpl cityService;
@@ -20,22 +22,22 @@ public class CityController {
 
 
     @PostMapping
-    public void createCity(@RequestBody City city) {
-        cityService.createCity(city);
+    public void createCity(@RequestBody CitySeedDto citySeedDto) {
+        cityService.createCity(citySeedDto);
     }
 
     @PutMapping
-    public void updateCity(@RequestBody City city) {
+    public void updateCity(@RequestBody CitySeedDto citySeedDto) {
 
     }
 
     @GetMapping
-    public List<City> getCities() {
+    public List<CityViewDto> getCities() {
         return cityService.getAllCities();
     }
 
     @GetMapping("/{id}")
-    public City getCity(@PathVariable("id") Long id) {
+    public CityViewDto getCity(@PathVariable("id") Long id) {
         return cityService.getCityById(id);
     }
 

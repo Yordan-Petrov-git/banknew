@@ -1,6 +1,8 @@
 package com.advance.academy.bank.system.web.controller;
 
 import com.advance.academy.bank.system.data.model.User;
+import com.advance.academy.bank.system.data.model.dto.UserSeedDto;
+import com.advance.academy.bank.system.data.model.dto.UserViewDto;
 import com.advance.academy.bank.system.domain.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,29 +21,29 @@ public class UserController {
     }
 
     @PostMapping
-    public void createUser(@RequestBody User user) {
-        userService.createUser(user);
+    public void createUser(@RequestBody UserSeedDto userSeedDto) {
+        userService.createUser(userSeedDto);
     }
 
     @PutMapping
-    public void updateUser(@RequestBody User user) {
+    public void updateUser(@RequestBody UserSeedDto userSeedDto) {
 
     }
 
-    @GetMapping
-    public List<User> getUsers() {
+    @GetMapping()
+    public List<UserViewDto> getUsers() {
         return userService.getAllUsers();
     }
 
 
     @GetMapping("/{id}")
-    public User getUser(@PathVariable("id") Long id) {
+    public UserViewDto getUser(@PathVariable("id") Long id) {
         return userService.getUserById(id);
     }
 
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable("id") Long id) {
-
+        userService.deleteUserById(id);
     }
 }
 

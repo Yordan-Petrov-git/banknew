@@ -3,6 +3,7 @@ package com.advance.academy.bank.system.domain.impl;
 import com.advance.academy.bank.system.data.model.Card;
 import com.advance.academy.bank.system.data.dao.CardRepository;
 import com.advance.academy.bank.system.domain.CardService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +13,12 @@ import java.util.List;
 public class CardServiceImpl implements CardService {
 
     private final CardRepository cardRepository;
+    private final ModelMapper modelMapper;
 
     @Autowired
-    public CardServiceImpl(CardRepository cardRepository) {
+    public CardServiceImpl(CardRepository cardRepository, ModelMapper modelMapper) {
         this.cardRepository = cardRepository;
+        this.modelMapper = modelMapper;
     }
 
 

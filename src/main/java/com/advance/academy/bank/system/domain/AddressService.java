@@ -1,6 +1,8 @@
 package com.advance.academy.bank.system.domain;
 
 import com.advance.academy.bank.system.data.model.Address;
+import com.advance.academy.bank.system.data.model.dto.AddressSeedDto;
+import com.advance.academy.bank.system.data.model.dto.AddressViewDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,13 +10,13 @@ import java.util.List;
 @Service
 public interface AddressService {
 
-    void createAddress(Address address);
+    void createAddress(AddressSeedDto addressSeedDto);
 
-    void updateAddress(Address address);
+    void updateAddress(AddressSeedDto addressSeedDto);
 
-    List<Address> getAllAddresses();
+    List<AddressViewDto> getAllAddresses();
 
-    Address getAddressById(long id);
+    AddressViewDto getAddressById(long id);
 
     void deleteAddressById(long id);
 

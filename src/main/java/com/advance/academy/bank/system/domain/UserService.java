@@ -2,6 +2,8 @@ package com.advance.academy.bank.system.domain;
 
 
 import com.advance.academy.bank.system.data.model.User;
+import com.advance.academy.bank.system.data.model.dto.UserSeedDto;
+import com.advance.academy.bank.system.data.model.dto.UserViewDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,13 +11,13 @@ import java.util.List;
 @Service
 public interface UserService {
 
-    void createUser(User user);
+    void createUser(UserSeedDto user);
 
-    void updateUser(User user);
+    void updateUser(UserSeedDto user);
 
-    User getUserById(long id);
+    UserViewDto getUserById(long id);
 
-    List<User> getAllUsers();
+    List<UserViewDto> getAllUsers();
 
     void deleteUserById(long id);
 }

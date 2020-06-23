@@ -1,6 +1,7 @@
 package com.advance.academy.bank.system.data.model;
 
 import com.advance.academy.bank.system.data.model.enums.AccountType;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -33,6 +34,7 @@ public class Account extends BaseEntity {
 
     @ManyToOne(targetEntity = User.class)
     @JoinColumn(name = "user_id")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     public User getOwner() {
         return owner;
     }

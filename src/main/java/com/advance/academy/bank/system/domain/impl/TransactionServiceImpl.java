@@ -6,6 +6,7 @@ import com.advance.academy.bank.system.data.model.Transaction;
 import com.advance.academy.bank.system.data.dao.AccountRepository;
 import com.advance.academy.bank.system.data.dao.TransactionRepository;
 import com.advance.academy.bank.system.domain.TransactionService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,11 +20,13 @@ public class TransactionServiceImpl implements TransactionService {
 
     private final TransactionRepository transactionRepository;
     private final AccountRepository accountRepository;
+    private final ModelMapper modelMapper;
 
     @Autowired
-    public TransactionServiceImpl(TransactionRepository transactionRepository, AccountRepository accountRepository) {
+    public TransactionServiceImpl(TransactionRepository transactionRepository, AccountRepository accountRepository, ModelMapper modelMapper) {
         this.transactionRepository = transactionRepository;
         this.accountRepository = accountRepository;
+        this.modelMapper = modelMapper;
     }
 
 

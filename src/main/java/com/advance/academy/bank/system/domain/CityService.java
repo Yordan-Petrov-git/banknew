@@ -1,6 +1,8 @@
 package com.advance.academy.bank.system.domain;
 
 import com.advance.academy.bank.system.data.model.City;
+import com.advance.academy.bank.system.data.model.dto.CitySeedDto;
+import com.advance.academy.bank.system.data.model.dto.CityViewDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,13 +10,15 @@ import java.util.List;
 @Service
 public interface CityService {
 
-    void createCity(City city);
+    void createCity(CitySeedDto citySeedDto);
 
-    void updateCity(City city);
+    void updateCity(CitySeedDto citySeedDto);
 
-    List<City> getAllCities();
+    List<CityViewDto> getAllCities();
 
-    City getCityById(long id);
+    CityViewDto getCityById(long id);
+
+    CityViewDto findByCityName(String name);
 
     void deleteCityById(long id);
 
