@@ -2,9 +2,10 @@ package com.advance.academy.bank.system.data.model.dto;
 
 public class CityViewDto {
 
+
+    private long id;
     private String cityName;
     private String postalCode;
-
 
     public CityViewDto() {
     }
@@ -14,6 +15,19 @@ public class CityViewDto {
         this.postalCode = postalCode;
     }
 
+    public CityViewDto(long id, String cityName, String postalCode) {
+        this.id = id;
+        this.cityName = cityName;
+        this.postalCode = postalCode;
+    }
+
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getCityName() {
         return this.cityName;

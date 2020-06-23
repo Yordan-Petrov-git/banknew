@@ -1,25 +1,27 @@
 package com.advance.academy.bank.system.data.model.dto;
 
-public class AddressSeedDto {
+public class AddressSeedDtoWithCity {
 
-    private String city;
+    private CitySeedDto city;
     private String houseNumber;
     private String streetName;
 
-    public AddressSeedDto(String city, String houseNumber, String streetName) {
+
+    public AddressSeedDtoWithCity(CitySeedDto city, String houseNumber, String streetName) {
         this.city = city;
         this.houseNumber = houseNumber;
         this.streetName = streetName;
     }
 
-    public AddressSeedDto() {
+
+    public AddressSeedDtoWithCity() {
     }
 
-    public String getCity() {
+    public CitySeedDto getCity() {
         return this.city;
     }
 
-    public void setCity(String city) {
+    public void setCity(CitySeedDto city) {
         this.city = city;
     }
 

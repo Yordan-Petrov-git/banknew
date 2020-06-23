@@ -2,6 +2,7 @@ package com.advance.academy.bank.system.web.controller;
 
 import com.advance.academy.bank.system.data.model.Address;
 import com.advance.academy.bank.system.data.model.dto.AddressSeedDto;
+import com.advance.academy.bank.system.data.model.dto.AddressSeedDtoWithCity;
 import com.advance.academy.bank.system.data.model.dto.AddressViewDto;
 import com.advance.academy.bank.system.domain.impl.AddressServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class AddressController {
     }
 
     @PostMapping
-    public void createAddress(@RequestBody AddressSeedDto address) {
+    public void createAddress(@RequestBody AddressSeedDtoWithCity address) {
         addressService.createAddress(address);
     }
 

@@ -50,7 +50,7 @@ public class ContractDetail extends BaseEntity {
         this.contactType = contactType;
     }
 
-
+//
 //    @Column(name = "additional_info",
 //            columnDefinition = "jsonb")
 //    public Map<String, Object> getAdditionalInfo()

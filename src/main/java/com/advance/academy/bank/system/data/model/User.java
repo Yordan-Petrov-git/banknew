@@ -83,7 +83,7 @@ public class User extends BaseEntity {
 
 
     @ManyToMany(targetEntity = Address.class,
-            cascade = {CascadeType.PERSIST, CascadeType.PERSIST},
+            cascade = CascadeType.PERSIST,
             fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_address",

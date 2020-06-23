@@ -1,22 +1,15 @@
 package com.advance.academy.bank.system.init;
 
-import com.advance.academy.bank.system.data.model.*;
-import com.advance.academy.bank.system.data.model.dto.UserSeedDto;
-import com.advance.academy.bank.system.data.model.enums.UserType;
-import com.advance.academy.bank.system.exeption.IllegalBankOperationException;
-import com.advance.academy.bank.system.data.model.enums.AccountType;
-import com.advance.academy.bank.system.domain.AccountService;
-import com.advance.academy.bank.system.domain.TransactionService;
-import com.advance.academy.bank.system.domain.UserService;
+import com.advance.academy.bank.system.data.model.dto.AddressSeedDto;
+import com.advance.academy.bank.system.data.model.dto.AddressSeedDtoWithCity;
+import com.advance.academy.bank.system.data.model.dto.CitySeedDto;
+import com.advance.academy.bank.system.data.model.dto.CityViewDto;
+import com.advance.academy.bank.system.domain.*;
+import com.advance.academy.bank.system.domain.impl.CityServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import java.math.BigDecimal;
-import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
 
 
 @Component
@@ -27,31 +20,65 @@ public class AppRunner implements CommandLineRunner {
     private final UserService userService;
     private final TransactionService transactionService;
     private final AccountService accountService;
+    private final AddressService addressService;
+    private final CityService cityService;
 
     @Autowired
-    public AppRunner(UserService userService, TransactionService transactionService, AccountService accountService) {
+    public AppRunner(UserService userService, TransactionService transactionService, AccountService accountService, AddressService addressService, CityService cityService, CityServiceImpl cityService1) {
         this.userService = userService;
         this.transactionService = transactionService;
         this.accountService = accountService;
+        this.addressService = addressService;
+        this.cityService = cityService1;
     }
 
 
     @Override
 
     public void run(String... args) throws Exception {
+
+
+
+        CitySeedDto citySeedDto = new CitySeedDto();
+        citySeedDto.setCityName("Varna");
+        citySeedDto.setPostalCode("9000");
+
+        cityService.createCity(citySeedDto);
 //
+        CitySeedDto citySeedDto1 = new CitySeedDto();
+        citySeedDto1.setCityName("Burgas");
+        citySeedDto1.setPostalCode("8000");
+
+        cityService.createCity(citySeedDto1);
+//
+//
+        AddressSeedDtoWithCity dto =
+                new AddressSeedDtoWithCity(citySeedDto,"19a","kurStreet");
+
+        addressService.createAddress(dto);
+
+//       CityViewDto cityViewDto = cityService.findByCityName("Varna");
+//        System.out.println(cityViewDto.getId() + " "+ cityViewDto.getCityName());
+
+//        AddressSeedDto addressSeedDto = new AddressSeedDto();
+//        addressSeedDto.setCity("123");
+//        addressSeedDto.setHouseNumber("asd211");
+//        addressSeedDto.setStreetName("asd");
+//        addressService.createAddress(addressSeedDto);
+//        System.out.println();
+
 //        Set<Account> acc = new HashSet<Account>();
 //        Set<Account> acc1 = new HashSet<Account>();
 //
-
-        UserSeedDto userSeedDto = new UserSeedDto();
-
-        userSeedDto.setFirstName("Ivan");
-        userSeedDto.setLastName("Ivanonv");
-        userSeedDto.setPhone("1234");
-        userSeedDto.setEgn("9999999999");
-        userSeedDto.setEmail("testEmail@gmail.com");
-        userSeedDto.setUserType(UserType.NONE);
+//
+//        UserSeedDto userSeedDto = new UserSeedDto();
+//
+//        userSeedDto.setFirstName("Ivan");
+//        userSeedDto.setLastName("Ivanonv");
+//        userSeedDto.setPhone("1234");
+//        userSeedDto.setEgn("9999999999");
+//        userSeedDto.setEmail("testEmail@gmail.com");
+//        userSeedDto.setUserType(UserType.NONE);
         //user.setUserSubscriptions();
 
 //        Account account = new Account();
@@ -84,7 +111,7 @@ public class AppRunner implements CommandLineRunner {
 //        transaction.setAmount(new BigDecimal(500));
 //        transaction.setDateCreated(Instant.now());
 
-        userService.createUser(userSeedDto);
+//        userService.createUser(userSeedDto);
 
 //        userService.createUser(user1);
 //

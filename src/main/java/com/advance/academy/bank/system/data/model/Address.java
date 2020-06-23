@@ -1,6 +1,7 @@
 package com.advance.academy.bank.system.data.model;
 
 import javax.persistence.*;
+import javax.transaction.Transactional;
 
 @Entity
 @Table(name = "addresses")
@@ -15,8 +16,9 @@ public class Address extends BaseEntity {
     }
 
     @ManyToOne(targetEntity = City.class,
-            cascade = CascadeType.ALL)
-    @JoinColumn(name = "city_id")
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
+    @JoinColumn(name = "city_id", referencedColumnName = "id")
     public City getCity() {
         return city;
     }
