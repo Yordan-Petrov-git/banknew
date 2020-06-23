@@ -22,7 +22,7 @@ public class AddressController {
     }
 
     @PostMapping
-    public void createAddress(@RequestBody AddressSeedDtoWithCity address) {
+    public void createAddress(@RequestBody AddressSeedDto address) {
         addressService.createAddress(address);
     }
 

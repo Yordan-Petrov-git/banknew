@@ -1,15 +1,19 @@
 package com.advance.academy.bank.system.init;
 
-import com.advance.academy.bank.system.data.model.dto.AddressSeedDto;
-import com.advance.academy.bank.system.data.model.dto.AddressSeedDtoWithCity;
-import com.advance.academy.bank.system.data.model.dto.CitySeedDto;
-import com.advance.academy.bank.system.data.model.dto.CityViewDto;
+import com.advance.academy.bank.system.data.model.Account;
+import com.advance.academy.bank.system.data.model.dto.*;
+import com.advance.academy.bank.system.data.model.enums.AccountType;
+import com.advance.academy.bank.system.data.model.enums.UserType;
 import com.advance.academy.bank.system.domain.*;
 import com.advance.academy.bank.system.domain.impl.CityServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Component
@@ -39,59 +43,49 @@ public class AppRunner implements CommandLineRunner {
 
 
 
-        CitySeedDto citySeedDto = new CitySeedDto();
+        CitySeedDto citySeedDto = new CitySeedDto( );
         citySeedDto.setCityName("Varna");
         citySeedDto.setPostalCode("9000");
 
         cityService.createCity(citySeedDto);
-//
+
         CitySeedDto citySeedDto1 = new CitySeedDto();
         citySeedDto1.setCityName("Burgas");
         citySeedDto1.setPostalCode("8000");
 
         cityService.createCity(citySeedDto1);
+
+        AddressSeedDto addressSeedDto = new AddressSeedDto("Burgas","asd","das");
+        addressService.createAddress(addressSeedDto);
+        System.out.println();
+
+        Set<AccountSeedDto> acc = new HashSet<AccountSeedDto>();
+//        Set<AccountSeedDto> acc1 = new HashSet<AccountSeedDto>();
+
+        UserSeedDto userSeedDto = new UserSeedDto();
+
+        userSeedDto.setFirstName("Ivan");
+        userSeedDto.setLastName("Ivanonv");
+        userSeedDto.setPhone("1234");
+        userSeedDto.setEgn("9999999999");
+        userSeedDto.setEmail("testEmail@gmail.com");
+        userSeedDto.setUserType(UserType.NONE);
+        userSeedDto.setAccounts(acc);
+        userService.createUser(userSeedDto);
+
+        AccountSeedDto account = new AccountSeedDto();
+        account.setIban("96262ad52a25a");
+        //account.setOwner(userSeedDto);
+        account.setAccountType(AccountType.CHECKING);
+        account.setBalance(new BigDecimal(5000));
+//        //account.setCurrency();
 //
+        accountService.createAccount(account);
+
+
 //
-        AddressSeedDtoWithCity dto =
-                new AddressSeedDtoWithCity(citySeedDto,"19a","kurStreet");
-
-        addressService.createAddress(dto);
-
-//       CityViewDto cityViewDto = cityService.findByCityName("Varna");
-//        System.out.println(cityViewDto.getId() + " "+ cityViewDto.getCityName());
-
-//        AddressSeedDto addressSeedDto = new AddressSeedDto();
-//        addressSeedDto.setCity("123");
-//        addressSeedDto.setHouseNumber("asd211");
-//        addressSeedDto.setStreetName("asd");
-//        addressService.createAddress(addressSeedDto);
-//        System.out.println();
-
-//        Set<Account> acc = new HashSet<Account>();
-//        Set<Account> acc1 = new HashSet<Account>();
-//
-//
-//        UserSeedDto userSeedDto = new UserSeedDto();
-//
-//        userSeedDto.setFirstName("Ivan");
-//        userSeedDto.setLastName("Ivanonv");
-//        userSeedDto.setPhone("1234");
-//        userSeedDto.setEgn("9999999999");
-//        userSeedDto.setEmail("testEmail@gmail.com");
-//        userSeedDto.setUserType(UserType.NONE);
-        //user.setUserSubscriptions();
-
-//        Account account = new Account();
-//        account.setIban("96262ad52a25a");
-//        account.setOwner(user);
-//        account.setAccountType(AccountType.CHECKING);
-//        account.setBalance(new BigDecimal(5000));
-        //account.setCurrency();
-
         //add accounts
-//        acc.add(account);
-//        user.setAccounts(acc);
-//
+
 //        User user1 = new User();
 //        user1.setFirstName("asd");
 //        user1.setLastName("dsa");
@@ -111,7 +105,7 @@ public class AppRunner implements CommandLineRunner {
 //        transaction.setAmount(new BigDecimal(500));
 //        transaction.setDateCreated(Instant.now());
 
-//        userService.createUser(userSeedDto);
+       //  userService.createUser(userSeedDto);
 
 //        userService.createUser(user1);
 //

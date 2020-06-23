@@ -1,6 +1,7 @@
 package com.advance.academy.bank.system.web.controller;
 
 import com.advance.academy.bank.system.data.model.Account;
+import com.advance.academy.bank.system.data.model.dto.AccountSeedDto;
 import com.advance.academy.bank.system.domain.impl.AccountServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,7 @@ public class AccountController {
     }
 
     @PostMapping
-    public void createAccount(@RequestBody Account account) {
+    public void createAccount(@RequestBody AccountSeedDto account) {
         accountService.createAccount(account);
     }
 

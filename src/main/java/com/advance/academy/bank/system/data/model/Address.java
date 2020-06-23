@@ -16,8 +16,7 @@ public class Address extends BaseEntity {
     }
 
     @ManyToOne(targetEntity = City.class,
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
+            fetch = FetchType.LAZY)
     @JoinColumn(name = "city_id", referencedColumnName = "id")
     public City getCity() {
         return city;

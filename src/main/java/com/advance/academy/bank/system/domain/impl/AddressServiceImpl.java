@@ -31,23 +31,22 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public void createAddress(AddressSeedDtoWithCity addressSeedDto) {
-
-//        Address address = this.modelMapper.map(addressSeedDto, Address.class);
-//
-//        CityViewDto city = this.cityService.findByCityName(addressSeedDto.getCity());
-//
-//        address.setCity(this.modelMapper.map(city, City.class));
-//
-//        this.addressRepository.save(address);
-//--------------------------------
+    public void createAddress(AddressSeedDto addressSeedDto) {
 
         Address address = this.modelMapper.map(addressSeedDto, Address.class);
 
+        CityViewDto city = this.cityService.findByCityName(addressSeedDto.getCity());
+
+        address.setCity(this.modelMapper.map(city, City.class));
 
         this.addressRepository.save(address);
+//--------------------------------
 
-       // AddressSeedDtoWithCity
+//        Address address = this.modelMapper.map(addressSeedDto, Address.class);
+//
+//
+//        this.addressRepository.save(address);
+//
 
 
     }

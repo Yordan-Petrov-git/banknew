@@ -15,11 +15,6 @@ public class CityViewDto {
         this.postalCode = postalCode;
     }
 
-    public CityViewDto(long id, String cityName, String postalCode) {
-        this.id = id;
-        this.cityName = cityName;
-        this.postalCode = postalCode;
-    }
 
     public long getId() {
         return this.id;

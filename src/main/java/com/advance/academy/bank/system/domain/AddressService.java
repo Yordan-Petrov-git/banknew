@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public interface AddressService {
 
-    void createAddress(AddressSeedDtoWithCity addressSeedDto);
+    void createAddress(AddressSeedDto addressSeedDto);
 
     void updateAddress(AddressSeedDto addressSeedDto);
 
