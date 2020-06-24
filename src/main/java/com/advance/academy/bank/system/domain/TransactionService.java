@@ -1,6 +1,8 @@
 package com.advance.academy.bank.system.domain;
 
 import com.advance.academy.bank.system.data.model.Transaction;
+import com.advance.academy.bank.system.data.model.dto.TransactionSeedDto;
+import com.advance.academy.bank.system.data.model.dto.TransactionViewDto;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -8,13 +10,13 @@ import java.util.List;
 @Service
 public interface TransactionService {
 
-    void createTransaction(Transaction transaction);
+    void createTransaction(TransactionSeedDto transactionSeedDto);
 
-    void updateTransaction(Transaction transaction);
+    void updateTransaction(TransactionSeedDto transactionSeedDto);
 
-    Transaction getTransactionById(long id);
+    TransactionViewDto getTransactionById(long id);
 
-    List<Transaction> getAllTransactions();
+    List<TransactionViewDto> getAllTransactions();
 
     void deleteTransactionById(long id);
 

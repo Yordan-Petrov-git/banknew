@@ -1,6 +1,8 @@
 package com.advance.academy.bank.system.web.controller;
 
 import com.advance.academy.bank.system.data.model.Bank;
+import com.advance.academy.bank.system.data.model.dto.BankSeedDto;
+import com.advance.academy.bank.system.data.model.dto.BankViewDto;
 import com.advance.academy.bank.system.domain.BankService;
 import com.advance.academy.bank.system.domain.impl.BankServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +24,7 @@ public class BankController {
 
 
     @PostMapping
-    public void createBank(@RequestBody Bank bank) {
+    public void createBank(@RequestBody BankSeedDto bank) {
 //        validateBank(bank);
 //        if (null != bank.getAddress()) {
 //
@@ -30,24 +32,24 @@ public class BankController {
         bankService.createBank(bank);
     }
 
-    private void validateBank(Bank bank) {
-        if (null == bank.getAddress()) {
-            throw new IllegalArgumentException("Invalid bank address");
-        }
-    }
+//    private void validateBank(BankSeedDto bank) {
+//        if (null == bank.getAddress()) {
+//            throw new IllegalArgumentException("Invalid bank address");
+//        }
+//}
 
     @PutMapping
-    public void updateBank(@RequestBody Bank bank) {
+    public void updateBank(@RequestBody BankSeedDto bank) {
 
     }
 
     @GetMapping
-    public List<Bank> getBnaks() {
+    public List<BankViewDto> getBnaks() {
         return bankService.getAllBanks();
     }
 
     @GetMapping("/{id}")
-    public Bank getBank(@PathVariable("id") Long id) {
+    public BankViewDto getBank(@PathVariable("id") Long id) {
         return bankService.getBankById(id);
     }
 

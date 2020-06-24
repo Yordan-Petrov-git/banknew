@@ -1,9 +1,16 @@
 package com.advance.academy.bank.system.domain.impl;
 
+import com.advance.academy.bank.system.data.model.Account;
+import com.advance.academy.bank.system.data.model.Bank;
 import com.advance.academy.bank.system.data.model.Card;
 import com.advance.academy.bank.system.data.dao.CardRepository;
+import com.advance.academy.bank.system.data.model.dto.AccountViewDto;
+import com.advance.academy.bank.system.data.model.dto.BankViewDto;
+import com.advance.academy.bank.system.data.model.dto.CardSeedDto;
+import com.advance.academy.bank.system.data.model.dto.CardViewDto;
 import com.advance.academy.bank.system.domain.CardService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,23 +30,38 @@ public class CardServiceImpl implements CardService {
 
 
     @Override
-    public void createCard(Card card) {
-        cardRepository.save(card);
+    public void createCard(CardSeedDto cardSeedDto) {
+
+
+        Card card = this.modelMapper.map(cardSeedDto, Card.class);
+        this.cardRepository.save(card);
+
+
     }
 
     @Override
-    public void updateCard(Card card) {
+    public void updateCard(CardSeedDto card) {
         //TODO ADD UPDATE
     }
 
     @Override
-    public List<Card> getAllCard() {
-        return cardRepository.findAll();
+    public List<CardViewDto> getAllCard() {
+
+        List<Card> cards = cardRepository.findAll();
+
+        return modelMapper.map(cards, new TypeToken<List<CardViewDto>>() {
+        }.getType());
+
+
     }
 
     @Override
-    public Card getCardById(long id) {
-        return cardRepository.getOne(id);
+    public CardViewDto getCardById(long id) {
+
+
+        return this.modelMapper
+                .map(this.cardRepository.findById(id), CardViewDto.class);
+
     }
 
     @Override

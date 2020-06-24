@@ -27,7 +27,7 @@ public class CityController {
 
     @PutMapping
     public void updateCity(@RequestBody CitySeedDto citySeedDto) {
-
+        cityService.updateCity(citySeedDto);
     }
 
     @GetMapping

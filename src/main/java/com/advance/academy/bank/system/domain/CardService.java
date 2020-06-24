@@ -1,19 +1,21 @@
 package com.advance.academy.bank.system.domain;
 
 import com.advance.academy.bank.system.data.model.Card;
+import com.advance.academy.bank.system.data.model.dto.CardSeedDto;
+import com.advance.academy.bank.system.data.model.dto.CardViewDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public interface CardService {
 
-    void createCard(Card card);
+    void createCard(CardSeedDto cardSeedDto);
 
-    void updateCard(Card card);
+    void updateCard(CardSeedDto cardSeedDto);
 
-    List<Card> getAllCard();
+    List<CardViewDto> getAllCard();
 
-    Card getCardById(long id);
+    CardViewDto getCardById(long id);
 
     void deleteCardById(long id);
 

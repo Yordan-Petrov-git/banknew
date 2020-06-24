@@ -1,15 +1,34 @@
 package com.advance.academy.bank.system.domain.impl;
 
+import com.advance.academy.bank.system.data.dao.FeatureRepository;
+import com.advance.academy.bank.system.data.model.Feature;
+import com.advance.academy.bank.system.data.model.FeaturePackage;
+import com.advance.academy.bank.system.data.model.dto.FeaturePackageViewDto;
 import com.advance.academy.bank.system.data.model.dto.FeatureSeedDto;
 import com.advance.academy.bank.system.data.model.dto.FeatureViewDto;
 import com.advance.academy.bank.system.domain.FeatureService;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 public class FeatureServiceImpl implements FeatureService {
+
+    private final ModelMapper modelMapper;
+    private final FeatureRepository featureRepository;
+
+    @Autowired
+    public FeatureServiceImpl(ModelMapper modelMapper, FeatureRepository featureRepository) {
+        this.modelMapper = modelMapper;
+        this.featureRepository = featureRepository;
+    }
+
+
     @Override
     public void createFeature(FeatureSeedDto featureSeedDto) {
-
+        Feature feature = this.modelMapper.map(featureSeedDto, Feature.class);
+        this.featureRepository.save(feature);
     }
 
     @Override
@@ -19,12 +38,16 @@ public class FeatureServiceImpl implements FeatureService {
 
     @Override
     public FeatureViewDto getFeatureById(long id) {
-        return null;
+        return this.modelMapper
+                .map(this.featureRepository.findById(id), FeatureViewDto.class);
     }
 
     @Override
     public List<FeatureViewDto> getAllFeatures() {
-        return null;
+        List<Feature> features = featureRepository.findAll();
+
+        return modelMapper.map(features, new TypeToken<List<FeatureViewDto>>() {
+        }.getType());
     }
 
     @Override

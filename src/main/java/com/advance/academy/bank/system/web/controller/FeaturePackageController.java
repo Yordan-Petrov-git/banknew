@@ -1,6 +1,8 @@
 package com.advance.academy.bank.system.web.controller;
 
 import com.advance.academy.bank.system.data.model.FeaturePackage;
+import com.advance.academy.bank.system.data.model.dto.FeaturePackageSeedDto;
+import com.advance.academy.bank.system.data.model.dto.FeaturePackageViewDto;
 import com.advance.academy.bank.system.domain.FeaturePackageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,23 +21,23 @@ public class FeaturePackageController {
 
 
     @PostMapping
-    public void createFeaturePackage(@RequestBody FeaturePackage featurePackage) {
+    public void createFeaturePackage(@RequestBody FeaturePackageSeedDto featurePackage) {
 
     }
 
     @PutMapping
-    public void updateFeaturePackage(@RequestBody FeaturePackage featurePackage) {
+    public void updateFeaturePackage(@RequestBody FeaturePackageSeedDto featurePackage) {
 
     }
 
     @GetMapping
-    public List<FeaturePackage> getFeaturePackages() {
+    public List<FeaturePackageViewDto> getFeaturePackages() {
         return null;
     }
 
 
     @GetMapping("/{id}")
-    public FeaturePackage getFeaturePackage(@PathVariable("id") Long id) {
+    public FeaturePackageViewDto getFeaturePackage(@PathVariable("id") Long id) {
         return null;
     }
 

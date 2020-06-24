@@ -1,6 +1,8 @@
 package com.advance.academy.bank.system.web.controller;
 
 import com.advance.academy.bank.system.data.model.Currency;
+import com.advance.academy.bank.system.data.model.dto.CurrencySeedDto;
+import com.advance.academy.bank.system.data.model.dto.CurrencyViewDto;
 import com.advance.academy.bank.system.domain.CurrencyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,23 +21,23 @@ public class CurrencyController {
     }
 
     @PostMapping
-    public void createCurrency(@RequestBody Currency currency) {
+    public void createCurrency(@RequestBody CurrencySeedDto currency) {
 
     }
 
     @PutMapping
-    public void updateCurrency(@RequestBody Currency currency) {
+    public void updateCurrency(@RequestBody CurrencySeedDto currency) {
 
     }
 
     @GetMapping
-    public List<Currency> getCurrency() {
+    public List<CurrencyViewDto> getCurrency() {
         return null;
     }
 
 
     @GetMapping("/{id}")
-    public Currency getCurrency(@PathVariable("id") Long id) {
+    public CurrencyViewDto getCurrency(@PathVariable("id") Long id) {
         return null;
     }
 

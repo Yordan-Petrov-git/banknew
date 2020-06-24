@@ -1,11 +1,14 @@
 package com.advance.academy.bank.system.domain.impl;
 
+import com.advance.academy.bank.system.data.model.City;
 import com.advance.academy.bank.system.data.model.User;
 import com.advance.academy.bank.system.data.dao.UserRepository;
+import com.advance.academy.bank.system.data.model.dto.CityViewDto;
 import com.advance.academy.bank.system.data.model.dto.UserSeedDto;
 import com.advance.academy.bank.system.data.model.dto.UserViewDto;
 import com.advance.academy.bank.system.domain.UserService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,12 +48,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserViewDto> getAllUsers() {
 
-        UserViewDto userViewDto = this.modelMapper
-                .map(this.userRepository.findAll(),  UserViewDto.class);
+        List<User> users = userRepository.findAll();
 
-        List<UserViewDto> list = new ArrayList<>();
-        list.add(userViewDto);
-        return list;
+        return modelMapper.map(users, new TypeToken<List<UserViewDto>>() {
+        }.getType());
     }
 
     @Override

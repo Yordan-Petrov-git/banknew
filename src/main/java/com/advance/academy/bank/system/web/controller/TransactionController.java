@@ -1,6 +1,8 @@
 package com.advance.academy.bank.system.web.controller;
 
 import com.advance.academy.bank.system.data.model.Transaction;
+import com.advance.academy.bank.system.data.model.dto.TransactionSeedDto;
+import com.advance.academy.bank.system.data.model.dto.TransactionViewDto;
 import com.advance.academy.bank.system.domain.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,22 +21,22 @@ public class TransactionController {
     }
 
     @PostMapping
-    public void createTransaction(@RequestBody Transaction transaction) {
+    public void createTransaction(@RequestBody TransactionSeedDto transaction) {
         transactionService.createTransaction(transaction);
     }
 
     @PutMapping
-    public void updateTransaction(@RequestBody Transaction transaction) {
-
+    public void updateTransaction(@RequestBody TransactionSeedDto transaction) {
+        transactionService.updateTransaction(transaction);
     }
 
     @GetMapping
-    public List<Transaction> getTransactions() {
+    public List<TransactionViewDto> getTransactions() {
         return transactionService.getAllTransactions();
     }
 
     @GetMapping("/{id}")
-    public Transaction getTransaction(@PathVariable("id") Long id) {
+    public TransactionViewDto getTransaction(@PathVariable("id") Long id) {
         return transactionService.getTransactionById(id);
     }
 

@@ -1,6 +1,8 @@
 package com.advance.academy.bank.system.domain;
 
 import com.advance.academy.bank.system.data.model.Bank;
+import com.advance.academy.bank.system.data.model.dto.BankSeedDto;
+import com.advance.academy.bank.system.data.model.dto.BankViewDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,13 +10,13 @@ import java.util.List;
 @Service
 public interface BankService {
 
-    void createBank(Bank bank);
+    void createBank(BankSeedDto bankSeedDto);
 
-    void updateBank(Bank bank);
+    void updateBank(BankSeedDto bankSeedDto);
 
-    List<Bank> getAllBanks();
+    List<BankViewDto> getAllBanks();
 
-    Bank getBankById(long id);
+    BankViewDto getBankById(long id);
 
     void deleteBankById(long id);
 

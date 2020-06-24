@@ -1,5 +1,10 @@
 package com.advance.academy.bank.system.domain.impl;
 
+import com.advance.academy.bank.system.data.model.User;
+import com.advance.academy.bank.system.data.model.dto.CityViewDto;
+import com.advance.academy.bank.system.data.model.dto.TransactionSeedDto;
+import com.advance.academy.bank.system.data.model.dto.TransactionViewDto;
+import com.advance.academy.bank.system.data.model.dto.UserViewDto;
 import com.advance.academy.bank.system.exeption.IllegalBankOperationException;
 import com.advance.academy.bank.system.data.model.Account;
 import com.advance.academy.bank.system.data.model.Transaction;
@@ -7,6 +12,7 @@ import com.advance.academy.bank.system.data.dao.AccountRepository;
 import com.advance.academy.bank.system.data.dao.TransactionRepository;
 import com.advance.academy.bank.system.domain.TransactionService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,23 +37,31 @@ public class TransactionServiceImpl implements TransactionService {
 
 
     @Override
-    public void createTransaction(Transaction transaction) {
-        transactionRepository.save(transaction);
+    public void createTransaction(TransactionSeedDto transactionSeedDto) {
+        Transaction transaction = this.modelMapper.map(transactionSeedDto, Transaction.class);
+        this.transactionRepository.save(transaction);
+
     }
 
     @Override
-    public void updateTransaction(Transaction transaction) {
+    public void updateTransaction(TransactionSeedDto transactionSeedDto) {
         //TODO ADD TRANSACTION
     }
 
     @Override
-    public Transaction getTransactionById(long id) {
-        return transactionRepository.findTopById(id);
+    public TransactionViewDto getTransactionById(long id) {
+
+        return this.modelMapper
+                .map(this.transactionRepository.findById(id), TransactionViewDto.class);
+
     }
 
     @Override
-    public List<Transaction> getAllTransactions() {
-        return transactionRepository.findAll();
+    public List<TransactionViewDto> getAllTransactions() {
+        List<Transaction> transactions = transactionRepository.findAll();
+
+        return modelMapper.map(transactions, new TypeToken<List<TransactionViewDto>>() {
+        }.getType());
     }
 
     @Override
@@ -64,6 +78,9 @@ public class TransactionServiceImpl implements TransactionService {
                     format("Current balance : %.2f is not sufficient to withdraw amount:  %.2f",
                             account.getBalance(), amount));
         }
+
+        //TODO ADD UPDATE OPERATION
+
         account.setBalance(account.getBalance().subtract(amount));
         accountRepository.save(account);
     }
@@ -77,6 +94,8 @@ public class TransactionServiceImpl implements TransactionService {
                     format("Deposit amount cannot be : %.2f",
                             amount));
         }
+
+        //TODO ADD UPDATE OPERATION
         account.setBalance(account.getBalance().add(amount));
         accountRepository.save(account);
     }
@@ -85,7 +104,7 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public void transferMoney(long toId, long fromId, BigDecimal amount) {
 
-
+        //TODO ADD UPDATE OPERATION
         depositMoney(toId, amount);
         withdrawMoney(fromId, amount);
 

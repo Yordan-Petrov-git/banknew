@@ -26,7 +26,7 @@ public class AddressController {
 
     @PutMapping
     public void updateAddress(@RequestBody AddressSeedDto address) {
-
+        addressService.updateAddress(address);
     }
 
     @GetMapping

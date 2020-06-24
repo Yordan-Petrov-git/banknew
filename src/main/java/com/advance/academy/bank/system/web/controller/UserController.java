@@ -28,7 +28,7 @@ public class UserController {
 
     @PutMapping
     public void updateUser(@RequestBody UserSeedDto userSeedDto) {
-
+        userService.updateUser(userSeedDto);
     }
 
     @GetMapping()

@@ -1,6 +1,8 @@
 package com.advance.academy.bank.system.web.controller;
 
 import com.advance.academy.bank.system.data.model.Card;
+import com.advance.academy.bank.system.data.model.dto.CardSeedDto;
+import com.advance.academy.bank.system.data.model.dto.CardViewDto;
 import com.advance.academy.bank.system.domain.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,23 +21,23 @@ public class CardController {
     }
 
     @PostMapping
-    public void createCard(@RequestBody Card card) {
+    public void createCard(@RequestBody CardSeedDto card) {
         cardService.createCard(card);
     }
 
     @PutMapping
-    public void updateCard(@RequestBody Card card) {
-
+    public void updateCard(@RequestBody CardSeedDto card) {
+        cardService.updateCard(card);
     }
 
     @GetMapping
-    public List<Card> getCard() {
+    public List<CardViewDto> getCard() {
         return cardService.getAllCard();
     }
 
 
     @GetMapping("/{id}")
-    public Card getCard(@PathVariable("id") Long id) {
+    public CardViewDto getCard(@PathVariable("id") Long id) {
         return cardService.getCardById(id);
     }
 

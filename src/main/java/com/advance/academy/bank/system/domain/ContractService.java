@@ -1,6 +1,8 @@
 package com.advance.academy.bank.system.domain;
 
 import com.advance.academy.bank.system.data.model.Contract;
+import com.advance.academy.bank.system.data.model.dto.ContractSeedDto;
+import com.advance.academy.bank.system.data.model.dto.ContractViewDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,14 +10,15 @@ import java.util.List;
 @Service
 public interface ContractService {
 
-    void createContract(Contract contract);
+    void createContract(ContractSeedDto contractSeedDto);
 
-    void updateContract(Contract contract);
+    void updateContract(ContractSeedDto contractSeedDto);
 
-    List<Contract> getAllContracts();
+    ContractViewDto getContractById(long id);
 
-    Contract getContractById(long id);
+    List<ContractViewDto> getAllContracts();
 
     void deleteContractById(long id);
+
 
 }

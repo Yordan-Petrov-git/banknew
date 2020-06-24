@@ -4,8 +4,11 @@ import com.advance.academy.bank.system.data.model.Account;
 import com.advance.academy.bank.system.data.dao.AccountRepository;
 import com.advance.academy.bank.system.data.model.User;
 import com.advance.academy.bank.system.data.model.dto.AccountSeedDto;
+import com.advance.academy.bank.system.data.model.dto.AccountViewDto;
+import com.advance.academy.bank.system.data.model.dto.CityViewDto;
 import com.advance.academy.bank.system.domain.AccountService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +20,7 @@ public class AccountServiceImpl implements AccountService {
 
     private final AccountRepository accountRepository;
     private final ModelMapper modelMapper;
+
     @Autowired
     public AccountServiceImpl(AccountRepository accountRepository, ModelMapper modelMapper) {
         this.accountRepository = accountRepository;
@@ -32,18 +36,28 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public void updateAccount(Account account) {
-     //TODO ADD UPDATE
+    public void updateAccount(AccountSeedDto account) {
+        //TODO ADD UPDATE
     }
 
     @Override
-    public List<Account> getAllAccounts() {
-        return accountRepository.findAll();
+    public List<AccountViewDto> getAllAccounts() {
+
+
+        List<Account> accounts = accountRepository.findAll();
+
+        return modelMapper.map(accounts, new TypeToken<List<AccountViewDto>>() {
+        }.getType());
+
+
     }
 
     @Override
-    public Account getAccountById(long id) {
-        return accountRepository.findById(id);
+    public AccountViewDto getAccountById(long id) {
+
+        return this.modelMapper
+                .map(this.accountRepository.findById(id), AccountViewDto.class);
+
     }
 
     @Override

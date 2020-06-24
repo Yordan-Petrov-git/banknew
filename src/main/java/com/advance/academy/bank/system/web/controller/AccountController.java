@@ -2,6 +2,7 @@ package com.advance.academy.bank.system.web.controller;
 
 import com.advance.academy.bank.system.data.model.Account;
 import com.advance.academy.bank.system.data.model.dto.AccountSeedDto;
+import com.advance.academy.bank.system.data.model.dto.AccountViewDto;
 import com.advance.academy.bank.system.domain.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,18 +26,18 @@ public class AccountController {
     }
 
     @PutMapping
-    public void updateAccount(@RequestBody Account account) {
-
+    public void updateAccount(@RequestBody AccountSeedDto account) {
+        accountService.updateAccount(account);
     }
 
     @GetMapping
-    public List<Account> getAccounts() {
+    public List<AccountViewDto> getAccounts() {
         return accountService.getAllAccounts();
     }
 
 
     @GetMapping("/{id}")
-    public Account getAccount(@PathVariable("id") Long id) {
+    public AccountViewDto getAccount(@PathVariable("id") Long id) {
         return accountService.getAccountById(id);
     }
 
