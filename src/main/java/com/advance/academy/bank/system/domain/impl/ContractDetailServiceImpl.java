@@ -1,27 +1,28 @@
 package com.advance.academy.bank.system.domain.impl;
 
 import com.advance.academy.bank.system.data.dao.ContractDerailRepository;
-import com.advance.academy.bank.system.data.model.Contract;
 import com.advance.academy.bank.system.data.model.ContractDetail;
 import com.advance.academy.bank.system.data.model.dto.ContractDetailSeedDto;
 import com.advance.academy.bank.system.data.model.dto.ContractDetailViewDto;
-import com.advance.academy.bank.system.data.model.dto.ContractViewDto;
 import com.advance.academy.bank.system.domain.ContractDetailService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ContractDetailServiceImpl implements ContractDetailService {
 
-    private final ModelMapper modelMapper;
+
     private final ContractDerailRepository contractDerailRepository;
+    private final ModelMapper modelMapper;
 
     @Autowired
     public ContractDetailServiceImpl(ModelMapper modelMapper, ContractDerailRepository contractDerailRepository) {
-        this.modelMapper = modelMapper;
         this.contractDerailRepository = contractDerailRepository;
+        this.modelMapper = modelMapper;
     }
 
     @Override

@@ -3,7 +3,6 @@ package com.advance.academy.bank.system.data.model.dto;
 public class CurrencySeedDto {
 
 
-
     private String name;
     private String iso2;
     private String iso3;

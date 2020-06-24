@@ -1,6 +1,5 @@
 package com.advance.academy.bank.system.domain;
 
-import com.advance.academy.bank.system.data.model.Account;
 import com.advance.academy.bank.system.data.model.dto.AccountSeedDto;
 import com.advance.academy.bank.system.data.model.dto.AccountViewDto;
 import org.springframework.stereotype.Service;

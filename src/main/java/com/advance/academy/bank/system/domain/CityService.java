@@ -1,6 +1,5 @@
 package com.advance.academy.bank.system.domain;
 
-import com.advance.academy.bank.system.data.model.City;
 import com.advance.academy.bank.system.data.model.dto.CitySeedDto;
 import com.advance.academy.bank.system.data.model.dto.CityViewDto;
 import org.springframework.stereotype.Service;

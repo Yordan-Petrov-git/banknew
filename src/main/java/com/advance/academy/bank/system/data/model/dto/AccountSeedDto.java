@@ -1,7 +1,5 @@
 package com.advance.academy.bank.system.data.model.dto;
 
-import com.advance.academy.bank.system.data.model.Currency;
-import com.advance.academy.bank.system.data.model.User;
 import com.advance.academy.bank.system.data.model.enums.AccountType;
 
 import javax.validation.constraints.Min;

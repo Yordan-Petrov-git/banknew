@@ -1,26 +1,25 @@
 package com.advance.academy.bank.system.domain.impl;
 
 import com.advance.academy.bank.system.data.dao.UserSubscriptionRepository;
-import com.advance.academy.bank.system.data.model.Feature;
-import com.advance.academy.bank.system.data.model.User;
 import com.advance.academy.bank.system.data.model.UserSubscription;
-import com.advance.academy.bank.system.data.model.dto.FeatureViewDto;
 import com.advance.academy.bank.system.data.model.dto.UserSubscriptionSeedDto;
 import com.advance.academy.bank.system.data.model.dto.UserSubscriptionViewDto;
 import com.advance.academy.bank.system.domain.UserSubscriptionService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public class UserSubscriptionImpl implements UserSubscriptionService {
+@Service
+public class UserSubscriptionServiceImpl implements UserSubscriptionService {
 
     private final ModelMapper modelMapper;
     private final UserSubscriptionRepository userSubscriptionRepository;
 
     @Autowired
-    public UserSubscriptionImpl(ModelMapper modelMapper, UserSubscriptionRepository userSubscriptionRepository) {
+    public UserSubscriptionServiceImpl(ModelMapper modelMapper, UserSubscriptionRepository userSubscriptionRepository) {
         this.modelMapper = modelMapper;
         this.userSubscriptionRepository = userSubscriptionRepository;
     }

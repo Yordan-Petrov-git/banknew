@@ -1,18 +1,18 @@
 package com.advance.academy.bank.system.domain.impl;
 
 import com.advance.academy.bank.system.data.dao.FeatureRepository;
-import com.advance.academy.bank.system.data.model.Feature;
-import com.advance.academy.bank.system.data.model.FeaturePackage;
-import com.advance.academy.bank.system.data.model.dto.FeaturePackageViewDto;
+import com.advance.academy.bank.system.data.model.Feature;;
 import com.advance.academy.bank.system.data.model.dto.FeatureSeedDto;
 import com.advance.academy.bank.system.data.model.dto.FeatureViewDto;
 import com.advance.academy.bank.system.domain.FeatureService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class FeatureServiceImpl implements FeatureService {
 
     private final ModelMapper modelMapper;

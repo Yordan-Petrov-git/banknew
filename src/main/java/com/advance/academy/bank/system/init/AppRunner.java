@@ -1,6 +1,5 @@
 package com.advance.academy.bank.system.init;
 
-import com.advance.academy.bank.system.data.model.Account;
 import com.advance.academy.bank.system.data.model.dto.*;
 import com.advance.academy.bank.system.data.model.enums.AccountType;
 import com.advance.academy.bank.system.data.model.enums.UserType;
@@ -43,43 +42,43 @@ public class AppRunner implements CommandLineRunner {
 
 
 
-        CitySeedDto citySeedDto = new CitySeedDto( );
-        citySeedDto.setCityName("Varna");
-        citySeedDto.setPostalCode("9000");
-
-        cityService.createCity(citySeedDto);
-
-        CitySeedDto citySeedDto1 = new CitySeedDto();
-        citySeedDto1.setCityName("Burgas");
-        citySeedDto1.setPostalCode("8000");
-
-        cityService.createCity(citySeedDto1);
-
-        AddressSeedDto addressSeedDto = new AddressSeedDto("Burgas","asd","das");
-        addressService.createAddress(addressSeedDto);
-        System.out.println();
-
-        Set<AccountSeedDto> acc = new HashSet<AccountSeedDto>();
-//        Set<AccountSeedDto> acc1 = new HashSet<AccountSeedDto>();
-
-        UserSeedDto userSeedDto = new UserSeedDto();
-
-        userSeedDto.setFirstName("Ivan");
-        userSeedDto.setLastName("Ivanonv");
-        userSeedDto.setPhone("1234");
-        userSeedDto.setEgn("9999999999");
-        userSeedDto.setEmail("testEmail@gmail.com");
-        userSeedDto.setUserType(UserType.NONE);
-        userSeedDto.setAccounts(acc);
-        userService.createUser(userSeedDto);
-
-        AccountSeedDto account = new AccountSeedDto();
-        account.setIban("96262ad52a25a");
-
-        account.setAccountType(AccountType.CHECKING);
-        account.setBalance(new BigDecimal(5000));
-
-        accountService.createAccount(account);
+//        CitySeedDto citySeedDto = new CitySeedDto( );
+//        citySeedDto.setCityName("Varna");
+//        citySeedDto.setPostalCode("9000");
+//
+//        cityService.createCity(citySeedDto);
+//
+//        CitySeedDto citySeedDto1 = new CitySeedDto();
+//        citySeedDto1.setCityName("Burgas");
+//        citySeedDto1.setPostalCode("8000");
+//
+//        cityService.createCity(citySeedDto1);
+//
+//        AddressSeedDto addressSeedDto = new AddressSeedDto("Burgas","asd","das");
+//        addressService.createAddress(addressSeedDto);
+//        System.out.println();
+//
+//        Set<AccountSeedDto> acc = new HashSet<AccountSeedDto>();
+////        Set<AccountSeedDto> acc1 = new HashSet<AccountSeedDto>();
+//
+//        UserSeedDto userSeedDto = new UserSeedDto();
+//
+//        userSeedDto.setFirstName("Ivan");
+//        userSeedDto.setLastName("Ivanonv");
+//        userSeedDto.setPhone("1234");
+//        userSeedDto.setEgn("9999999999");
+//        userSeedDto.setEmail("testEmail@gmail.com");
+//        userSeedDto.setUserType(UserType.NONE);
+//        userSeedDto.setAccounts(acc);
+//        userService.createUser(userSeedDto);
+//
+//        AccountSeedDto account = new AccountSeedDto();
+//        account.setIban("96262ad52a25a");
+//
+//        account.setAccountType(AccountType.CHECKING);
+//        account.setBalance(new BigDecimal(5000));
+//
+//        accountService.createAccount(account);
 
 
 //

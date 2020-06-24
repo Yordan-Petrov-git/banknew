@@ -1,12 +1,13 @@
 package com.advance.academy.bank.system.domain;
 
-import com.advance.academy.bank.system.data.model.Transaction;
 import com.advance.academy.bank.system.data.model.dto.TransactionSeedDto;
 import com.advance.academy.bank.system.data.model.dto.TransactionViewDto;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
+
+
 @Service
 public interface TransactionService {
 

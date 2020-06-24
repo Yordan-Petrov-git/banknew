@@ -1,8 +1,5 @@
 package com.advance.academy.bank.system.data.model.dto;
 
-import com.advance.academy.bank.system.data.model.Account;
-import com.advance.academy.bank.system.data.model.Feature;
-import com.advance.academy.bank.system.data.model.FeaturePackage;
 
 import java.util.HashSet;
 import java.util.Set;

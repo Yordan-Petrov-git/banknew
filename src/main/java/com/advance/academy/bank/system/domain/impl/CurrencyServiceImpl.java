@@ -1,20 +1,18 @@
 package com.advance.academy.bank.system.domain.impl;
 
 import com.advance.academy.bank.system.data.dao.CurrencyRepository;
-import com.advance.academy.bank.system.data.model.Contract;
-import com.advance.academy.bank.system.data.model.ContractDetail;
 import com.advance.academy.bank.system.data.model.Currency;
-import com.advance.academy.bank.system.data.model.dto.ContractViewDto;
 import com.advance.academy.bank.system.data.model.dto.CurrencySeedDto;
 import com.advance.academy.bank.system.data.model.dto.CurrencyViewDto;
 import com.advance.academy.bank.system.domain.CurrencyService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
+@Service
 public class CurrencyServiceImpl implements CurrencyService {
 
     private final ModelMapper modelMapper;

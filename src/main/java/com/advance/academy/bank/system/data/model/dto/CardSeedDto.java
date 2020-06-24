@@ -1,6 +1,5 @@
 package com.advance.academy.bank.system.data.model.dto;
 
-import com.advance.academy.bank.system.data.model.Account;
 import com.advance.academy.bank.system.data.model.enums.CardType;
 
 import java.time.Instant;

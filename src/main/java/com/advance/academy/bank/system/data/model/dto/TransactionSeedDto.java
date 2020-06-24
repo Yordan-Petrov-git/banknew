@@ -1,7 +1,5 @@
 package com.advance.academy.bank.system.data.model.dto;
 
-import com.advance.academy.bank.system.data.model.Account;
-import com.advance.academy.bank.system.data.model.Bank;
 import com.advance.academy.bank.system.data.model.enums.TransactionStatus;
 
 import java.math.BigDecimal;

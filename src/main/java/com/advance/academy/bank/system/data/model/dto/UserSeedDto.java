@@ -1,8 +1,5 @@
 package com.advance.academy.bank.system.data.model.dto;
 
-import com.advance.academy.bank.system.data.model.Account;
-import com.advance.academy.bank.system.data.model.Address;
-import com.advance.academy.bank.system.data.model.UserSubscription;
 import com.advance.academy.bank.system.data.model.enums.UserType;
 
 import java.util.HashSet;

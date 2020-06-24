@@ -1,9 +1,7 @@
 package com.advance.academy.bank.system.domain.impl;
 
-import com.advance.academy.bank.system.data.model.Card;
 import com.advance.academy.bank.system.data.model.Contract;
 import com.advance.academy.bank.system.data.dao.ContractRepository;
-import com.advance.academy.bank.system.data.model.dto.CardViewDto;
 import com.advance.academy.bank.system.data.model.dto.ContractSeedDto;
 import com.advance.academy.bank.system.data.model.dto.ContractViewDto;
 import com.advance.academy.bank.system.domain.ContractService;

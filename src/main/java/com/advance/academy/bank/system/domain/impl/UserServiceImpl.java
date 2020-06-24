@@ -1,9 +1,7 @@
 package com.advance.academy.bank.system.domain.impl;
 
-import com.advance.academy.bank.system.data.model.City;
 import com.advance.academy.bank.system.data.model.User;
 import com.advance.academy.bank.system.data.dao.UserRepository;
-import com.advance.academy.bank.system.data.model.dto.CityViewDto;
 import com.advance.academy.bank.system.data.model.dto.UserSeedDto;
 import com.advance.academy.bank.system.data.model.dto.UserViewDto;
 import com.advance.academy.bank.system.domain.UserService;
@@ -12,12 +10,10 @@ import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
-
 
     private final UserRepository userRepository;
     private final ModelMapper modelMapper;
@@ -56,7 +52,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUserById(long id) {
-
         userRepository.deleteById(id);
     }
 }

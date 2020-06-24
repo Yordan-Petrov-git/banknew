@@ -1,7 +1,5 @@
 package com.advance.academy.bank.system.data.model.dto;
 
-import com.advance.academy.bank.system.data.model.Account;
-import com.advance.academy.bank.system.data.model.ContractDetail;
 
 import java.time.Instant;
 

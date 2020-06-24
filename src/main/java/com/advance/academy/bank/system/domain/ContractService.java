@@ -1,6 +1,5 @@
 package com.advance.academy.bank.system.domain;
 
-import com.advance.academy.bank.system.data.model.Contract;
 import com.advance.academy.bank.system.data.model.dto.ContractSeedDto;
 import com.advance.academy.bank.system.data.model.dto.ContractViewDto;
 import org.springframework.stereotype.Service;

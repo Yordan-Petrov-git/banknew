@@ -1,7 +1,6 @@
 package com.advance.academy.bank.system.data.model.dto;
 
 import com.advance.academy.bank.system.data.model.enums.ContactType;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.math.BigDecimal;
 
