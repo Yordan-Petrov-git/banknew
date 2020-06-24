@@ -2,8 +2,11 @@ package com.advance.academy.bank.system.data.model;
 
 import com.advance.academy.bank.system.data.model.enums.UserType;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.NonNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -11,6 +14,11 @@ import java.util.Set;
 @Entity
 @Table(name = "users")
 public class User extends BaseEntity {
+
+    private String password;
+    private String username;
+    private boolean active = true;
+    private Collection<Role> authorities = new HashSet<>();
 
     private UserType userType;
     private String firstName;
@@ -90,7 +98,7 @@ public class User extends BaseEntity {
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "address_id", referencedColumnName = "id")
     )
- //   @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    //   @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     public Set<Address> getAddresses() {
         return addresses;
     }
@@ -101,7 +109,7 @@ public class User extends BaseEntity {
 
     @OneToMany(targetEntity = Account.class
             , cascade = CascadeType.ALL)
-   // @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    // @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     public Set<Account> getAccounts() {
         return accounts;
     }
@@ -118,6 +126,47 @@ public class User extends BaseEntity {
 
     public void setUserSubscriptions(Set<UserSubscription> userSubscriptions) {
         this.userSubscriptions = userSubscriptions;
+    }
+
+
+    @NotEmpty
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @Column(nullable = false)
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @NonNull
+    @NotEmpty
+    @Column(name = "username")
+    public String getUsername() {
+        return this.username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public boolean isActive() {
+        return this.active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    @ManyToMany(targetEntity = Role.class,
+            fetch = FetchType.EAGER)
+    public Collection<Role> getAuthorities() {
+        return this.authorities;
+    }
+
+    public void setAuthorities(Collection<Role> authorities) {
+        this.authorities = authorities;
     }
 
     @Override
