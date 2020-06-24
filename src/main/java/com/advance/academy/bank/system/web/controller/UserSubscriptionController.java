@@ -3,7 +3,6 @@ package com.advance.academy.bank.system.web.controller;
 import com.advance.academy.bank.system.data.model.dto.UserSubscriptionSeedDto;
 import com.advance.academy.bank.system.data.model.dto.UserSubscriptionViewDto;
 import com.advance.academy.bank.system.domain.UserSubscriptionService;
-import com.advance.academy.bank.system.domain.impl.UserSubscriptionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,17 +32,20 @@ public class UserSubscriptionController {
 
     @GetMapping
     public List<UserSubscriptionViewDto> getUserSubscriptions() {
+
         return userSubscriptionService.getAllUserSubscriptions();
     }
 
     @GetMapping("/{id}")
     public UserSubscriptionViewDto getUserSubscription(@PathVariable("id") Long id) {
-        return null;
+
+        return userSubscriptionService.getUserSubscriptionById(id);
     }
 
     @DeleteMapping("/{id}")
     public void deleteUserSubscription(@PathVariable("id") Long id) {
 
+        userSubscriptionService.deleteUserSubscriptionById(id);
     }
 
 }

@@ -32,17 +32,19 @@ public class CurrencyController {
 
     @GetMapping
     public List<CurrencyViewDto> getCurrency() {
-        return null;
+        return currencyService.getAllCurrencies();
     }
 
 
     @GetMapping("/{id}")
     public CurrencyViewDto getCurrency(@PathVariable("id") Long id) {
-        return null;
+
+        return currencyService.getCurrencyById(id);
     }
 
     @DeleteMapping("/{id}")
     public void deleteCurrency(@PathVariable("id") Long id) {
 
+         currencyService.deleteCurrencyById(id);
     }
 }

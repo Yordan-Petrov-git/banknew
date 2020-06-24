@@ -1,6 +1,5 @@
 package com.advance.academy.bank.system.web.controller;
 
-import com.advance.academy.bank.system.data.model.Feature;
 import com.advance.academy.bank.system.data.model.dto.FeatureSeedDto;
 import com.advance.academy.bank.system.data.model.dto.FeatureViewDto;
 import com.advance.academy.bank.system.domain.FeatureService;
@@ -32,17 +31,19 @@ public class FeatureController {
 
     @GetMapping
     public List<FeatureViewDto> getFeatures() {
-        return null;
+        return featureService.getAllFeatures();
     }
 
 
     @GetMapping("/{id}")
     public FeatureViewDto getFeature(@PathVariable("id") Long id) {
-        return null;
+
+        return featureService.getFeatureById(id);
     }
 
     @DeleteMapping("/{id}")
     public void deleteFeature(@PathVariable("id") Long id) {
 
+        featureService.deleteFeatureById(id);
     }
 }
