@@ -25,9 +25,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void createUser(UserSeedDto userSeedDto) {
+    public UserSeedDto createUser(UserSeedDto userSeedDto) {
+
         User user = this.modelMapper.map(userSeedDto, User.class);
-        this.userRepository.save(user);
+
+
+        this.userRepository.saveAndFlush(user);
+
+        return userSeedDto;
     }
 
     @Override

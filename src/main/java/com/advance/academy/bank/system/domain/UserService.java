@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public interface UserService {
 
-    void createUser(UserSeedDto user);
+    UserSeedDto createUser(UserSeedDto user);
 
     void updateUser(UserSeedDto user);
 

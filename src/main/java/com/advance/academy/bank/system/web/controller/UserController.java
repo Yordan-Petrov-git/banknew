@@ -4,6 +4,8 @@ import com.advance.academy.bank.system.data.model.dto.UserSeedDto;
 import com.advance.academy.bank.system.data.model.dto.UserViewDto;
 import com.advance.academy.bank.system.domain.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,8 +22,9 @@ public class UserController {
     }
 
     @PostMapping
-    public void createUser(@RequestBody UserSeedDto userSeedDto) {
-        userService.createUser(userSeedDto);
+    public ResponseEntity<UserSeedDto> createUser(@RequestBody UserSeedDto userSeedDto) {
+         userService.createUser(userSeedDto);
+        return new ResponseEntity<>(userSeedDto, HttpStatus.CREATED);
     }
 
     @PutMapping
