@@ -75,11 +75,10 @@ public class AppRunner implements CommandLineRunner {
 
         AccountSeedDto account = new AccountSeedDto();
         account.setIban("96262ad52a25a");
-        //account.setOwner(userSeedDto);
+
         account.setAccountType(AccountType.CHECKING);
         account.setBalance(new BigDecimal(5000));
-//        //account.setCurrency();
-//
+
         accountService.createAccount(account);
 
 

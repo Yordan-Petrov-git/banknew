@@ -10,18 +10,18 @@ import java.math.BigDecimal;
 public class AccountSeedDto {
 
     private String iban;
-    private UserSeedDto owner;
+    private UserViewDto owner;
     @Min(0)
     private BigDecimal balance;
     private AccountType accountType = AccountType.NONE;
-    private Currency currency;
+    private CurrencyViewDto currency;
 
 
     public AccountSeedDto() {
     }
 
 
-    public AccountSeedDto(String iban, UserSeedDto owner, @Min(0) BigDecimal balance, AccountType accountType, Currency currency) {
+    public AccountSeedDto(String iban, UserViewDto owner, @Min(0) BigDecimal balance, AccountType accountType, CurrencyViewDto currency) {
         this.iban = iban;
         this.owner = owner;
         this.balance = balance;
@@ -37,11 +37,11 @@ public class AccountSeedDto {
         this.iban = iban;
     }
 
-    public UserSeedDto getOwner() {
+    public UserViewDto getOwner() {
         return this.owner;
     }
 
-    public void setOwner(UserSeedDto owner) {
+    public void setOwner(UserViewDto owner) {
         this.owner = owner;
     }
 
@@ -61,11 +61,11 @@ public class AccountSeedDto {
         this.accountType = accountType;
     }
 
-    public Currency getCurrency() {
+    public CurrencyViewDto getCurrency() {
         return this.currency;
     }
 
-    public void setCurrency(Currency currency) {
+    public void setCurrency(CurrencyViewDto currency) {
         this.currency = currency;
     }
 }

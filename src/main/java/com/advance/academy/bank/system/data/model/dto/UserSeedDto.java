@@ -18,14 +18,14 @@ public class UserSeedDto {
     private String email;
     private Set<AddressSeedDto> addresses = new HashSet<>();
     private Set<AccountSeedDto> accounts = new HashSet<>();
-    private Set<UserSubscription> userSubscriptions = new HashSet<>();
+    private Set<UserSubscriptionSeedDto> userSubscriptions = new HashSet<>();
 
 
     public UserSeedDto() {
     }
 
 
-    public UserSeedDto(UserType userType, String firstName, String lastName, String egn, String phone, String email, Set<AddressSeedDto> addresses, Set<AccountSeedDto> accounts, Set<UserSubscription> userSubscriptions) {
+    public UserSeedDto(UserType userType, String firstName, String lastName, String egn, String phone, String email, Set<AddressSeedDto> addresses, Set<AccountSeedDto> accounts, Set<UserSubscriptionSeedDto> userSubscriptions) {
         this.userType = userType;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -101,11 +101,11 @@ public class UserSeedDto {
         this.accounts = accounts;
     }
 
-    public Set<UserSubscription> getUserSubscriptions() {
+    public Set<UserSubscriptionSeedDto> getUserSubscriptions() {
         return this.userSubscriptions;
     }
 
-    public void setUserSubscriptions(Set<UserSubscription> userSubscriptions) {
+    public void setUserSubscriptions(Set<UserSubscriptionSeedDto> userSubscriptions) {
         this.userSubscriptions = userSubscriptions;
     }
 }
