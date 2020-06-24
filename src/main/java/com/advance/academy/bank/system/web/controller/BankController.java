@@ -1,6 +1,7 @@
 package com.advance.academy.bank.system.web.controller;
 
 import com.advance.academy.bank.system.data.model.Bank;
+import com.advance.academy.bank.system.domain.BankService;
 import com.advance.academy.bank.system.domain.impl.BankServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,11 +12,11 @@ import java.util.List;
 @RequestMapping("api/banks")
 public class BankController {
 
-    private final BankServiceImpl bankService;
+    private final BankService bankService;
 
 
     @Autowired
-    public BankController(BankServiceImpl bankService) {
+    public BankController(BankService bankService) {
         this.bankService = bankService;
     }
 

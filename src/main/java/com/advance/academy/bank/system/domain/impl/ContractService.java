@@ -2,9 +2,10 @@ package com.advance.academy.bank.system.domain.impl;
 
 import com.advance.academy.bank.system.data.model.dto.ContractSeedDto;
 import com.advance.academy.bank.system.data.model.dto.ContractViewDto;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public interface ContractService {
 
 

@@ -3,6 +3,7 @@ package com.advance.academy.bank.system.web.controller;
 import com.advance.academy.bank.system.data.model.User;
 import com.advance.academy.bank.system.data.model.dto.UserSeedDto;
 import com.advance.academy.bank.system.data.model.dto.UserViewDto;
+import com.advance.academy.bank.system.domain.UserService;
 import com.advance.academy.bank.system.domain.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,10 +14,10 @@ import java.util.List;
 @RequestMapping("api/users")
 public class UserController {
 
-    private final UserServiceImpl userService;
+    private final UserService userService;
 
     @Autowired
-    public UserController(UserServiceImpl userService) {
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 

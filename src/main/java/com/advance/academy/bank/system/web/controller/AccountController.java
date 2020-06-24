@@ -2,7 +2,7 @@ package com.advance.academy.bank.system.web.controller;
 
 import com.advance.academy.bank.system.data.model.Account;
 import com.advance.academy.bank.system.data.model.dto.AccountSeedDto;
-import com.advance.academy.bank.system.domain.impl.AccountServiceImpl;
+import com.advance.academy.bank.system.domain.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,10 +12,10 @@ import java.util.List;
 @RequestMapping("api/accounts")
 public class AccountController {
 
-    private final AccountServiceImpl accountService;
+    private final AccountService accountService;
 
     @Autowired
-    public AccountController(AccountServiceImpl accountService) {
+    public AccountController(AccountService accountService) {
         this.accountService = accountService;
     }
 
@@ -42,7 +42,7 @@ public class AccountController {
 
     @DeleteMapping("/{id}")
     public void deleteAccount(@PathVariable("id") Long id) {
-          accountService.deleteAccountById(id);
+        accountService.deleteAccountById(id);
     }
 
 }

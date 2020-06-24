@@ -1,10 +1,8 @@
 package com.advance.academy.bank.system.web.controller;
 
-import com.advance.academy.bank.system.data.model.Address;
 import com.advance.academy.bank.system.data.model.dto.AddressSeedDto;
-import com.advance.academy.bank.system.data.model.dto.AddressSeedDtoWithCity;
 import com.advance.academy.bank.system.data.model.dto.AddressViewDto;
-import com.advance.academy.bank.system.domain.impl.AddressServiceImpl;
+import com.advance.academy.bank.system.domain.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,10 +12,10 @@ import java.util.List;
 @RequestMapping("api/address")
 public class AddressController {
 
-    private final AddressServiceImpl addressService;
+    private final AddressService addressService;
 
     @Autowired
-    public AddressController(AddressServiceImpl addressService) {
+    public AddressController(AddressService addressService) {
         this.addressService = addressService;
     }
 

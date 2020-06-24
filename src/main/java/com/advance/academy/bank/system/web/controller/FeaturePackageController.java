@@ -1,7 +1,8 @@
 package com.advance.academy.bank.system.web.controller;
 
-import com.advance.academy.bank.system.data.model.Account;
 import com.advance.academy.bank.system.data.model.FeaturePackage;
+import com.advance.academy.bank.system.domain.FeaturePackageService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,6 +11,11 @@ import java.util.List;
 @RequestMapping("api/packages")
 public class FeaturePackageController {
 
+    private final FeaturePackageService featurePackageService;
+@Autowired
+    public FeaturePackageController(FeaturePackageService featurePackageService) {
+        this.featurePackageService = featurePackageService;
+    }
 
 
     @PostMapping

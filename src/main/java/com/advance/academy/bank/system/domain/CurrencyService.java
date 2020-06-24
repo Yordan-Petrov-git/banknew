@@ -2,10 +2,11 @@ package com.advance.academy.bank.system.domain;
 
 import com.advance.academy.bank.system.data.model.dto.CurrencySeedDto;
 import com.advance.academy.bank.system.data.model.dto.CurrencyViewDto;
+import org.springframework.stereotype.Service;
 ;
 
 import java.util.List;
-
+@Service
 public interface CurrencyService {
 
     void createCurrency(CurrencySeedDto currencySeedDto);

@@ -1,7 +1,7 @@
 package com.advance.academy.bank.system.web.controller;
 
 import com.advance.academy.bank.system.data.model.Card;
-import com.advance.academy.bank.system.domain.impl.CardServiceImpl;
+import com.advance.academy.bank.system.domain.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +11,10 @@ import java.util.List;
 @RequestMapping("api/cards")
 public class CardController {
 
-    private final CardServiceImpl cardService;
+    private final CardService cardService;
 
     @Autowired
-    public CardController(CardServiceImpl cardService) {
+    public CardController(CardService cardService) {
         this.cardService = cardService;
     }
 
@@ -41,7 +41,7 @@ public class CardController {
 
     @DeleteMapping("/{id}")
     public void deleteCard(@PathVariable("id") Long id) {
-          cardService.deleteCardById(id);
+        cardService.deleteCardById(id);
     }
 
 }

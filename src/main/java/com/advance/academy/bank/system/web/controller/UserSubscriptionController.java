@@ -1,7 +1,8 @@
 package com.advance.academy.bank.system.web.controller;
 
-import com.advance.academy.bank.system.data.model.Account;
 import com.advance.academy.bank.system.data.model.UserSubscription;
+import com.advance.academy.bank.system.domain.UserSubscriptionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,6 +11,13 @@ import java.util.List;
 @RequestMapping("api/subscriptions")
 public class UserSubscriptionController {
 
+
+    private final UserSubscriptionService userSubscriptionService;
+
+    @Autowired
+    public UserSubscriptionController(UserSubscriptionService userSubscriptionService) {
+        this.userSubscriptionService = userSubscriptionService;
+    }
 
     @PostMapping
     public void createUserSubscription(@RequestBody UserSubscription userSubscription) {

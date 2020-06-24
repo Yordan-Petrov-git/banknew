@@ -1,22 +1,21 @@
 package com.advance.academy.bank.system.web.controller;
 
-import com.advance.academy.bank.system.data.model.City;
 import com.advance.academy.bank.system.data.model.dto.CitySeedDto;
 import com.advance.academy.bank.system.data.model.dto.CityViewDto;
-import com.advance.academy.bank.system.domain.impl.CityServiceImpl;
+import com.advance.academy.bank.system.domain.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-    @RequestMapping("api/cities")
+@RequestMapping("api/cities")
 public class CityController {
 
-    private final CityServiceImpl cityService;
+    private final CityService cityService;
 
     @Autowired
-    public CityController(CityServiceImpl cityService) {
+    public CityController(CityService cityService) {
         this.cityService = cityService;
     }
 

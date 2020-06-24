@@ -1,6 +1,8 @@
 package com.advance.academy.bank.system.web.controller;
 
 import com.advance.academy.bank.system.data.model.Currency;
+import com.advance.academy.bank.system.domain.CurrencyService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,7 +11,12 @@ import java.util.List;
 @RequestMapping("api/currencies")
 public class CurrencyController {
 
+    private final CurrencyService currencyService;
 
+    @Autowired
+    public CurrencyController(CurrencyService currencyService) {
+        this.currencyService = currencyService;
+    }
 
     @PostMapping
     public void createCurrency(@RequestBody Currency currency) {
