@@ -106,6 +106,8 @@ public class UserServiceImpl implements UserService {
         userRepository.deleteById(id);
     }
 
+
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return this.userRepository.findByUsername(username).orElse(null);

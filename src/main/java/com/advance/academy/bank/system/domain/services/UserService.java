@@ -2,6 +2,7 @@ package com.advance.academy.bank.system.domain.services;
 
 import com.advance.academy.bank.system.data.models.UserSeedDto;
 import com.advance.academy.bank.system.data.models.UserViewDto;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
@@ -19,4 +20,5 @@ public interface UserService extends UserDetailsService {
     List<UserViewDto> getAllUsers();
 
     void deleteUserById(long id);
+
 }
