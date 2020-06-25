@@ -2,6 +2,7 @@ package com.advance.academy.bank.system.data.entities;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -59,9 +60,23 @@ public class UserSubscription extends BaseEntity {
 
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof UserSubscription)) return false;
+        UserSubscription that = (UserSubscription) o;
+        return Objects.equals(account, that.account);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(account);
+    }
+
+    @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("UserSubscription{");
-        sb.append("id=").append(id);
+        sb.append(", account=").append(account);
+        sb.append(", id=").append(id);
         sb.append('}');
         return sb.toString();
     }

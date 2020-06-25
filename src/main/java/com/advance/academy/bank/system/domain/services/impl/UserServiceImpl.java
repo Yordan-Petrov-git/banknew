@@ -1,5 +1,6 @@
 package com.advance.academy.bank.system.domain.services.impl;
 
+import com.advance.academy.bank.system.data.dao.RoleRepository;
 import com.advance.academy.bank.system.data.entities.Role;
 import com.advance.academy.bank.system.data.entities.User;
 import com.advance.academy.bank.system.data.dao.UserRepository;
@@ -27,13 +28,15 @@ import java.util.stream.Collectors;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
     private final ModelMapper modelMapper;
     private final RoleService roleService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, ModelMapper modelMapper, RoleService roleService, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, ModelMapper modelMapper, RoleService roleService, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
         this.modelMapper = modelMapper;
         this.roleService = roleService;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
@@ -61,7 +64,7 @@ public class UserServiceImpl implements UserService {
         }else{
           user.setAuthorities(new LinkedHashSet<>());
           user.getAuthorities()
-                  .add(this.modelMapper.map(this.roleService.findByAuthority("ÜSER"),Role.class));
+                  .add(this.modelMapper.map(this.roleRepository.findByAuthority("USER"),Role.class));
         }
 
         user.setPassword(this.bCryptPasswordEncoder.encode(userSeedDto.getPassword()));
@@ -77,12 +80,10 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void updateUser(@Valid UserSeedDto userSeedDto) {
-        //TODO ADD UPDATE
-        User user = this.modelMapper.map(userSeedDto, User.class);
-
+        //TODO exeption if no id is found
+        User user = userRepository.findById(userSeedDto.getId()).orElse(null);
+        this.modelMapper.map(userSeedDto, User.class);
         this.userRepository.saveAndFlush(user);
-
-        // return userSeedDto;
     }
 
     @Override

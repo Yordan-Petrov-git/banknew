@@ -3,6 +3,7 @@ package com.advance.academy.bank.system.data.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.util.Objects;
 
 @Entity
 @Table(name = "features")
@@ -30,6 +31,20 @@ public class Feature extends BaseEntity {
 
     public void setPrice(Long price) {
         this.price = price;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Feature)) return false;
+        Feature feature = (Feature) o;
+        return Objects.equals(description, feature.description) &&
+                Objects.equals(price, feature.price);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(description, price);
     }
 
     @Override

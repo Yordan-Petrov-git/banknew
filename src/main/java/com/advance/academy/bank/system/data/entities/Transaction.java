@@ -6,6 +6,7 @@ import com.advance.academy.bank.system.data.entities.enums.TransactionStatus;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.Objects;
 
 @Entity
 @Table(name = "transactions")
@@ -118,6 +119,27 @@ public class Transaction extends BaseEntity {
 
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Transaction)) return false;
+        Transaction that = (Transaction) o;
+        return
+                Objects.equals(description, that.description) &&
+                Objects.equals(dateCreated, that.dateCreated) &&
+                Objects.equals(dateCompleted, that.dateCompleted) &&
+                Objects.equals(dateUpdated, that.dateUpdated) &&
+                transactionStatus == that.transactionStatus &&
+                Objects.equals(fee, that.fee) &&
+                Objects.equals(amount, that.amount);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(description, dateCreated, dateCompleted, dateUpdated, transactionStatus, fee, amount);
     }
 
     @Override

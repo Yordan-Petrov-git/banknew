@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class UserSeedDto {
 
-
+   private Long id;
     private String username;
     private String password;
     private String confirmPassword;
@@ -25,6 +25,13 @@ public class UserSeedDto {
     public UserSeedDto() {
     }
 
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return this.username;

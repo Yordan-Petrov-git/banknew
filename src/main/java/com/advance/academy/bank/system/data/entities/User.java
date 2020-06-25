@@ -3,6 +3,7 @@ package com.advance.academy.bank.system.data.entities;
 import com.advance.academy.bank.system.data.entities.enums.UserType;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.NonNull;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
@@ -33,15 +34,14 @@ public class User extends BaseEntity implements UserDetails {
     private Set<Account> accounts = new HashSet<>();
     private Set<UserSubscription> userSubscriptions = new HashSet<>();
 
-
     public User() {
     }
-
 
     @Override
     @NonNull
     @NotEmpty
-    @Column(name = "username")
+    @Length(min = 2, max = 128)
+    @Column(name = "username",unique = true,nullable = false)
     public String getUsername() {
         return this.username;
     }
@@ -50,11 +50,11 @@ public class User extends BaseEntity implements UserDetails {
         this.username = username;
     }
 
-
     @Override
     @NotEmpty
+    @NonNull
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @Column(nullable = false)
+    @Column(name = "password",nullable = false)
     public String getPassword() {
         return this.password;
     }
@@ -141,7 +141,7 @@ public class User extends BaseEntity implements UserDetails {
         this.phone = phone;
     }
 
-    @Column(name = "email")
+    @Column(name = "email",nullable = false,unique = true)
     public String getEmail() {
         return email;
     }
@@ -195,24 +195,43 @@ public class User extends BaseEntity implements UserDetails {
         if (this == o) return true;
         if (!(o instanceof User)) return false;
         User user = (User) o;
-        return userType == user.userType &&
+        return isEnabled == user.isEnabled &&
+                isCredentialsNonExpired == user.isCredentialsNonExpired &&
+                isAccountNonLocked == user.isAccountNonLocked &&
+                isAccountNonExpired == user.isAccountNonExpired &&
+                Objects.equals(username, user.username) &&
+                Objects.equals(password, user.password) &&
+                userType == user.userType &&
                 Objects.equals(firstName, user.firstName) &&
                 Objects.equals(lastName, user.lastName) &&
                 Objects.equals(egn, user.egn) &&
                 Objects.equals(phone, user.phone) &&
-                Objects.equals(email, user.email);
+                Objects.equals(email, user.email) ;
+
     }
+
+
+
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+        return Objects.hash(username, password, isEnabled,
+                isCredentialsNonExpired, isAccountNonLocked,
+                isAccountNonExpired, authorities, userType, firstName,
+                lastName, egn, phone, email);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("User{");
-        sb.append("id=").append(id);
-        sb.append("userType=").append(userType);
+        sb.append("username='").append(username).append('\'');
+        sb.append(", password='").append(password).append('\'');
+        sb.append(", isEnabled=").append(isEnabled);
+        sb.append(", isCredentialsNonExpired=").append(isCredentialsNonExpired);
+        sb.append(", isAccountNonLocked=").append(isAccountNonLocked);
+        sb.append(", isAccountNonExpired=").append(isAccountNonExpired);
+        sb.append(", authorities=").append(authorities);
+        sb.append(", userType=").append(userType);
         sb.append(", firstName='").append(firstName).append('\'');
         sb.append(", lastName='").append(lastName).append('\'');
         sb.append(", egn='").append(egn).append('\'');
@@ -221,7 +240,6 @@ public class User extends BaseEntity implements UserDetails {
         sb.append('}');
         return sb.toString();
     }
-
 
     @Override
     @Transient

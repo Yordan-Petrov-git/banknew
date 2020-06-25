@@ -1,6 +1,7 @@
 package com.advance.academy.bank.system.data.entities;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "addresses")
@@ -43,10 +44,26 @@ public class Address extends BaseEntity {
         this.streetName = streetName;
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Address)) return false;
+        if (!super.equals(o)) return false;
+        Address address = (Address) o;
+        return
+                Objects.equals(houseNumber, address.houseNumber) &&
+                Objects.equals(streetName, address.streetName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), houseNumber, streetName);
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Address{");
-        sb.append("city=").append(city);
         sb.append(", houseNumber='").append(houseNumber).append('\'');
         sb.append(", streetName='").append(streetName).append('\'');
         sb.append('}');

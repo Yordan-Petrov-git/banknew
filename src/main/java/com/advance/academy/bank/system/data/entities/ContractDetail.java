@@ -5,12 +5,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 @Entity
 @Table(name = "contact_details")
 public class ContractDetail extends BaseEntity {
 
-    private static final ObjectMapper objectMapper = new ObjectMapper();
+   // private static final ObjectMapper objectMapper = new ObjectMapper();
     private BigDecimal principal;
     private BigDecimal interest;
     private ContactType contactType = ContactType.NONE;
@@ -63,4 +64,34 @@ public class ContractDetail extends BaseEntity {
 //        this.additionalInfo =
 //                objectMapper.writeValueAsString(additionalInfo);
 //    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ContractDetail)) return false;
+        ContractDetail that = (ContractDetail) o;
+        return Objects.equals(principal, that.principal) &&
+                Objects.equals(interest, that.interest) &&
+                contactType == that.contactType &&
+                Objects.equals(additionalInfo, that.additionalInfo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(principal, interest, contactType, additionalInfo);
+    }
+
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("ContractDetail{");
+        sb.append("principal=").append(principal);
+        sb.append(", interest=").append(interest);
+        sb.append(", contactType=").append(contactType);
+        sb.append(", additionalInfo='").append(additionalInfo).append('\'');
+        sb.append(", id=").append(id);
+        sb.append('}');
+        return sb.toString();
+    }
 }

@@ -5,6 +5,7 @@ import com.advance.academy.bank.system.data.entities.enums.CardType;
 import javax.persistence.*;
 
 import java.time.Instant;
+import java.util.Objects;
 
 @Entity
 @Table(name = "cards")
@@ -76,6 +77,23 @@ public class Card extends BaseEntity {
         isActive = active;
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Card)) return false;
+        Card card = (Card) o;
+        return isActive == card.isActive &&
+                cardType == card.cardType &&
+                Objects.equals(expirationDate, card.expirationDate) &&
+                Objects.equals(cvvCode, card.cvvCode) &&
+                Objects.equals(pinCode, card.pinCode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cardType, expirationDate, cvvCode, pinCode, isActive);
+    }
 
     @Override
     public String toString() {

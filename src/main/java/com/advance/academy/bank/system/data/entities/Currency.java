@@ -3,6 +3,7 @@ package com.advance.academy.bank.system.data.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.util.Objects;
 
 @Entity
 @Table(name = "currencies")
@@ -51,6 +52,22 @@ public class Currency extends BaseEntity {
 
     public void setMultiplierForCurrency(Integer multiplierForCurrency) {
         this.multiplierForCurrency = multiplierForCurrency;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Currency)) return false;
+        Currency currency = (Currency) o;
+        return Objects.equals(name, currency.name) &&
+                Objects.equals(iso2, currency.iso2) &&
+                Objects.equals(iso3, currency.iso3) &&
+                Objects.equals(multiplierForCurrency, currency.multiplierForCurrency);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, iso2, iso3, multiplierForCurrency);
     }
 
     @Override

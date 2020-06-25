@@ -2,6 +2,7 @@ package com.advance.academy.bank.system.data.entities;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -58,12 +59,26 @@ public class FeaturePackage extends BaseEntity {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof FeaturePackage)) return false;
+        FeaturePackage that = (FeaturePackage) o;
+        return Objects.equals(description, that.description) &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(price, that.price);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(description, name, price);
+    }
+
+    @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("FeaturePackage{");
         sb.append("description='").append(description).append('\'');
         sb.append(", name='").append(name).append('\'');
         sb.append(", price=").append(price);
-        sb.append(", features=").append(features);
         sb.append('}');
         return sb.toString();
     }

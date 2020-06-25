@@ -4,6 +4,7 @@ package com.advance.academy.bank.system.data.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.util.Objects;
 
 @Entity
 @Table(name = "cities")
@@ -35,6 +36,20 @@ public class City extends BaseEntity {
         this.postalCode = postalCode;
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof City)) return false;
+        City city = (City) o;
+        return Objects.equals(cityName, city.cityName) &&
+                Objects.equals(postalCode, city.postalCode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cityName, postalCode);
+    }
 
     @Override
     public String toString() {

@@ -23,7 +23,7 @@ public class Account extends BaseEntity {
     public Account() {
     }
 
-    @Column(name = "iban",unique = true)
+    @Column(name = "iban", unique = true)
     public String getIban() {
         return iban;
     }
@@ -72,20 +72,22 @@ public class Account extends BaseEntity {
         this.currency = currency;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Account)) return false;
+        if (!super.equals(o)) return false;
         Account account = (Account) o;
         return Objects.equals(iban, account.iban) &&
+                Objects.equals(owner, account.owner) &&
                 Objects.equals(balance, account.balance) &&
-                accountType == account.accountType;
+                accountType == account.accountType &&
+                Objects.equals(currency, account.currency);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+        return Objects.hash(super.hashCode(), iban, balance, accountType);
     }
 
     @Override
@@ -94,9 +96,8 @@ public class Account extends BaseEntity {
         sb.append("iban='").append(iban).append('\'');
         sb.append(", balance=").append(balance);
         sb.append(", accountType=").append(accountType);
+        sb.append(", id=").append(id);
         sb.append('}');
         return sb.toString();
     }
-
-
 }

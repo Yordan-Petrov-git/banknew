@@ -53,12 +53,22 @@ public class Role extends BaseEntity implements GrantedAuthority {
         if (this == o) return true;
         if (!(o instanceof Role)) return false;
         Role role = (Role) o;
-        return Objects.equals(authority, role.authority) &&
-                Objects.equals(users, role.users);
+        return Objects.equals(authority, role.authority);
+
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(authority, users);
+        return Objects.hash(authority);
+    }
+
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Role{");
+        sb.append("authority='").append(authority).append('\'');
+        sb.append(", id=").append(id);
+        sb.append('}');
+        return sb.toString();
     }
 }
