@@ -1,12 +1,10 @@
 package com.advance.academy.bank.system.web.controller;
 
-import com.advance.academy.bank.system.data.model.City;
-import com.advance.academy.bank.system.data.model.models.CitySeedDto;
-import com.advance.academy.bank.system.data.model.models.CityViewDto;
-import com.advance.academy.bank.system.domain.CityService;
+import com.advance.academy.bank.system.data.models.CitySeedDto;
+import com.advance.academy.bank.system.data.models.CityViewDto;
+import com.advance.academy.bank.system.domain.services.CityService;
 import com.advance.academy.bank.system.exeption.InvalidEntityException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

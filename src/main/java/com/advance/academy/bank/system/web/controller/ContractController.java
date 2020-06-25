@@ -1,8 +1,8 @@
 package com.advance.academy.bank.system.web.controller;
 
-import com.advance.academy.bank.system.data.model.models.ContractSeedDto;
-import com.advance.academy.bank.system.data.model.models.ContractViewDto;
-import com.advance.academy.bank.system.domain.ContractService;
+import com.advance.academy.bank.system.data.models.ContractSeedDto;
+import com.advance.academy.bank.system.data.models.ContractViewDto;
+import com.advance.academy.bank.system.domain.services.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,8 +1,8 @@
 package com.advance.academy.bank.system.web.controller;
 
-import com.advance.academy.bank.system.data.model.models.UserSeedDto;
-import com.advance.academy.bank.system.data.model.models.UserViewDto;
-import com.advance.academy.bank.system.domain.UserService;
+import com.advance.academy.bank.system.data.models.UserSeedDto;
+import com.advance.academy.bank.system.data.models.UserViewDto;
+import com.advance.academy.bank.system.domain.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,7 +1,7 @@
 package com.advance.academy.bank.system.init;
 
-import com.advance.academy.bank.system.domain.*;
-import com.advance.academy.bank.system.domain.impl.CityServiceImpl;
+import com.advance.academy.bank.system.domain.services.*;
+import com.advance.academy.bank.system.domain.services.impl.CityServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

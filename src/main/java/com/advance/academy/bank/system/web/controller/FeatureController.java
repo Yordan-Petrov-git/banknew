@@ -1,8 +1,8 @@
 package com.advance.academy.bank.system.web.controller;
 
-import com.advance.academy.bank.system.data.model.models.FeatureSeedDto;
-import com.advance.academy.bank.system.data.model.models.FeatureViewDto;
-import com.advance.academy.bank.system.domain.FeatureService;
+import com.advance.academy.bank.system.data.models.FeatureSeedDto;
+import com.advance.academy.bank.system.data.models.FeatureViewDto;
+import com.advance.academy.bank.system.domain.services.FeatureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
