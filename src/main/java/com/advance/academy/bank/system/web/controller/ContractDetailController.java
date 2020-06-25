@@ -1,10 +1,8 @@
 package com.advance.academy.bank.system.web.controller;
 
-import com.advance.academy.bank.system.data.model.dto.CitySeedDto;
-import com.advance.academy.bank.system.data.model.dto.CityViewDto;
-import com.advance.academy.bank.system.data.model.dto.ContractDetailSeedDto;
-import com.advance.academy.bank.system.data.model.dto.ContractDetailViewDto;
-import com.advance.academy.bank.system.domain.ContractDetailService;
+import com.advance.academy.bank.system.data.models.ContractDetailSeedDto;
+import com.advance.academy.bank.system.data.models.ContractDetailViewDto;
+import com.advance.academy.bank.system.domain.services.ContractDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

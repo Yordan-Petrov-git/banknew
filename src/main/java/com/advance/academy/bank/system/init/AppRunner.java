@@ -1,18 +1,11 @@
 package com.advance.academy.bank.system.init;
 
-import com.advance.academy.bank.system.data.model.dto.*;
-import com.advance.academy.bank.system.data.model.enums.AccountType;
-import com.advance.academy.bank.system.data.model.enums.UserType;
-import com.advance.academy.bank.system.domain.*;
-import com.advance.academy.bank.system.domain.impl.CityServiceImpl;
+import com.advance.academy.bank.system.domain.services.*;
+import com.advance.academy.bank.system.domain.services.impl.CityServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
 
 
 @Component
