@@ -16,11 +16,9 @@ public class Role extends BaseEntity implements GrantedAuthority {
     private String authority;
     private Set<User> users = new HashSet<>();
 
-
     public Role(String authority) {
         this.authority = authority;
     }
-
 
     public Role() {
     }

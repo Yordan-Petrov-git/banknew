@@ -44,8 +44,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserSeedDto createUser(@Valid UserSeedDto userSeedDto) {
-        //TODO
-
 
         User user = this.modelMapper.map(userSeedDto, User.class);
 

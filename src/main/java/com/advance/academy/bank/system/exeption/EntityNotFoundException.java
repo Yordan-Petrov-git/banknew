@@ -1,3 +1,4 @@
+
 package com.advance.academy.bank.system.exeption;
 
 public class EntityNotFoundException extends RuntimeException {

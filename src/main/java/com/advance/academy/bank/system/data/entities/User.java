@@ -24,7 +24,7 @@ public class User extends BaseEntity implements UserDetails {
     private boolean isAccountNonExpired = true;
     private Set<Role> authorities = new HashSet<>();
 
-    private UserType userType;
+    private UserType userType = UserType.NONE;
     private String firstName;
     private String lastName;
     private String egn;

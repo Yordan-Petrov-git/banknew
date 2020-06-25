@@ -1,5 +1,6 @@
 package com.advance.academy.bank.system.exeption;
 
+
 public class IllegalBankOperationException extends RuntimeException {
 
     public IllegalBankOperationException() {

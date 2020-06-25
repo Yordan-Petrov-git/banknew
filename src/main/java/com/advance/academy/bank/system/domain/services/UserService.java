@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public interface UserService extends UserDetailsService {
+public interface UserService extends UserDetailsService  {
 
     UserSeedDto createUser(UserSeedDto user);
 
