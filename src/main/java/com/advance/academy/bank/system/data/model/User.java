@@ -3,6 +3,7 @@ package com.advance.academy.bank.system.data.model;
 import com.advance.academy.bank.system.data.model.enums.UserType;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.NonNull;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -13,12 +14,15 @@ import java.util.Set;
 
 @Entity
 @Table(name = "users")
-public class User extends BaseEntity {
+public class User extends BaseEntity implements UserDetails {
 
-    private String password;
     private String username;
-    private boolean active = true;
-    private Collection<Role> authorities = new HashSet<>();
+    private String password;
+    private boolean isEnabled = true;
+    private boolean isCredentialsNonExpired = true;
+    private boolean isAccountNonLocked = true;
+    private boolean isAccountNonExpired = true;
+    private Set<Role> authorities = new HashSet<>();
 
     private UserType userType;
     private String firstName;
@@ -32,6 +36,64 @@ public class User extends BaseEntity {
 
 
     public User() {
+    }
+
+
+    @Override
+    @NonNull
+    @NotEmpty
+    @Column(name = "username")
+    public String getUsername() {
+        return this.username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+
+    @Override
+    @NotEmpty
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @Column(nullable = false)
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
+    public void setEnabled(boolean enabled) {
+        this.isEnabled = enabled;
+    }
+
+    public void setCredentialsNonExpired(boolean credentialsNonExpired) {
+        this.isCredentialsNonExpired = credentialsNonExpired;
+    }
+
+    public void setAccountNonLocked(boolean accountNonLocked) {
+        this.isAccountNonLocked = accountNonLocked;
+    }
+
+    public void setAccountNonExpired(boolean accountNonExpired) {
+        this.isAccountNonExpired = accountNonExpired;
+    }
+
+
+    @Override
+    @ManyToMany(targetEntity = Role.class,
+            fetch = FetchType.EAGER)
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    public Set<Role> getAuthorities() {
+        return this.authorities;
+    }
+
+    public void setAuthorities(Set<Role> authorities) {
+        this.authorities = authorities;
     }
 
     @Column(name = "user_type")
@@ -129,46 +191,6 @@ public class User extends BaseEntity {
     }
 
 
-    @NotEmpty
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @Column(nullable = false)
-    public String getPassword() {
-        return this.password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @NonNull
-    @NotEmpty
-    @Column(name = "username")
-    public String getUsername() {
-        return this.username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public boolean isActive() {
-        return this.active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
-    @ManyToMany(targetEntity = Role.class,
-            fetch = FetchType.EAGER)
-    public Collection<Role> getAuthorities() {
-        return this.authorities;
-    }
-
-    public void setAuthorities(Collection<Role> authorities) {
-        this.authorities = authorities;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -200,4 +222,30 @@ public class User extends BaseEntity {
         sb.append('}');
         return sb.toString();
     }
+
+
+    @Override
+    @Transient
+    public boolean isAccountNonExpired() {
+        return this.isAccountNonExpired;
+    }
+
+    @Override
+    @Transient
+    public boolean isAccountNonLocked() {
+        return this.isAccountNonLocked;
+    }
+
+    @Override
+    @Transient
+    public boolean isCredentialsNonExpired() {
+        return this.isCredentialsNonExpired;
+    }
+
+    @Override
+    @Transient
+    public boolean isEnabled() {
+        return this.isEnabled;
+    }
+
 }

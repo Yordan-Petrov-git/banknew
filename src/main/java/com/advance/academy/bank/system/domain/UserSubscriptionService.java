@@ -1,7 +1,7 @@
 package com.advance.academy.bank.system.domain;
 
-import com.advance.academy.bank.system.data.model.dto.UserSubscriptionSeedDto;
-import com.advance.academy.bank.system.data.model.dto.UserSubscriptionViewDto;
+import com.advance.academy.bank.system.data.model.models.UserSubscriptionSeedDto;
+import com.advance.academy.bank.system.data.model.models.UserSubscriptionViewDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

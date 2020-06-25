@@ -1,18 +1,20 @@
-package com.advance.academy.bank.system.data.model.dto;
+package com.advance.academy.bank.system.data.model.models;
+
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class UserSubscriptionViewDto {
+public class UserSubscriptionSeedDto {
+
 
     private Set<FeatureViewDto> features = new HashSet<>();
     private Set<FeaturePackageViewDto> featurePackages = new HashSet<>();
     private AccountViewDto account;
 
-    public UserSubscriptionViewDto() {
+    public UserSubscriptionSeedDto() {
     }
 
-    public UserSubscriptionViewDto(Set<FeatureViewDto> features, Set<FeaturePackageViewDto> featurePackages, AccountViewDto account) {
+    public UserSubscriptionSeedDto(Set<FeatureViewDto> features, Set<FeaturePackageViewDto> featurePackages, AccountViewDto account) {
         this.features = features;
         this.featurePackages = featurePackages;
         this.account = account;
@@ -41,5 +43,4 @@ public class UserSubscriptionViewDto {
     public void setAccount(AccountViewDto account) {
         this.account = account;
     }
-
 }

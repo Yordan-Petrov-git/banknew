@@ -1,8 +1,7 @@
 package com.advance.academy.bank.system.web.controller;
 
-import com.advance.academy.bank.system.data.model.Currency;
-import com.advance.academy.bank.system.data.model.dto.CurrencySeedDto;
-import com.advance.academy.bank.system.data.model.dto.CurrencyViewDto;
+import com.advance.academy.bank.system.data.model.models.CurrencySeedDto;
+import com.advance.academy.bank.system.data.model.models.CurrencyViewDto;
 import com.advance.academy.bank.system.domain.CurrencyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

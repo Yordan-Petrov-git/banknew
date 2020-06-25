@@ -1,7 +1,7 @@
 package com.advance.academy.bank.system.domain;
 
-import com.advance.academy.bank.system.data.model.dto.CitySeedDto;
-import com.advance.academy.bank.system.data.model.dto.CityViewDto;
+import com.advance.academy.bank.system.data.model.models.CitySeedDto;
+import com.advance.academy.bank.system.data.model.models.CityViewDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

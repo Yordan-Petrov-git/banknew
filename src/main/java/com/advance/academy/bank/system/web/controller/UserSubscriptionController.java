@@ -1,7 +1,7 @@
 package com.advance.academy.bank.system.web.controller;
 
-import com.advance.academy.bank.system.data.model.dto.UserSubscriptionSeedDto;
-import com.advance.academy.bank.system.data.model.dto.UserSubscriptionViewDto;
+import com.advance.academy.bank.system.data.model.models.UserSubscriptionSeedDto;
+import com.advance.academy.bank.system.data.model.models.UserSubscriptionViewDto;
 import com.advance.academy.bank.system.domain.UserSubscriptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

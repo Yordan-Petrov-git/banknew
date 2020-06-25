@@ -1,4 +1,4 @@
-package com.advance.academy.bank.system.data.model.dto;
+package com.advance.academy.bank.system.data.model.models;
 
 import com.advance.academy.bank.system.data.model.enums.UserType;
 
@@ -7,6 +7,8 @@ import java.util.Set;
 
 public class UserViewDto {
 
+    private String username;
+    private String password;
     private UserType userType;
     private String firstName;
     private String lastName;
@@ -14,8 +16,13 @@ public class UserViewDto {
     private String phone;
     private String email;
     private Set<AddressViewDto> addresses = new HashSet<>();
+    private Set<AccountSeedDto> accounts = new HashSet<>();
+    private Set<UserSubscriptionSeedDto> userSubscriptions = new HashSet<>();
 
-    public UserViewDto(UserType userType, String firstName, String lastName, String egn, String phone, String email, Set<AddressViewDto> addresses) {
+
+    public UserViewDto(String username, String password, UserType userType, String firstName, String lastName, String egn, String phone, String email, Set<AddressViewDto> addresses, Set<AccountSeedDto> accounts, Set<UserSubscriptionSeedDto> userSubscriptions) {
+        this.username = username;
+        this.password = password;
         this.userType = userType;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -23,9 +30,27 @@ public class UserViewDto {
         this.phone = phone;
         this.email = email;
         this.addresses = addresses;
+        this.accounts = accounts;
+        this.userSubscriptions = userSubscriptions;
     }
 
     public UserViewDto() {
+    }
+
+    public String getUsername() {
+        return this.username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public UserType getUserType() {
@@ -82,5 +107,21 @@ public class UserViewDto {
 
     public void setAddresses(Set<AddressViewDto> addresses) {
         this.addresses = addresses;
+    }
+
+    public Set<AccountSeedDto> getAccounts() {
+        return this.accounts;
+    }
+
+    public void setAccounts(Set<AccountSeedDto> accounts) {
+        this.accounts = accounts;
+    }
+
+    public Set<UserSubscriptionSeedDto> getUserSubscriptions() {
+        return this.userSubscriptions;
+    }
+
+    public void setUserSubscriptions(Set<UserSubscriptionSeedDto> userSubscriptions) {
+        this.userSubscriptions = userSubscriptions;
     }
 }

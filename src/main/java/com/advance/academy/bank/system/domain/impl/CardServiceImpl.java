@@ -2,8 +2,8 @@ package com.advance.academy.bank.system.domain.impl;
 
 import com.advance.academy.bank.system.data.model.Card;
 import com.advance.academy.bank.system.data.dao.CardRepository;
-import com.advance.academy.bank.system.data.model.dto.CardSeedDto;
-import com.advance.academy.bank.system.data.model.dto.CardViewDto;
+import com.advance.academy.bank.system.data.model.models.CardSeedDto;
+import com.advance.academy.bank.system.data.model.models.CardViewDto;
 import com.advance.academy.bank.system.domain.CardService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;

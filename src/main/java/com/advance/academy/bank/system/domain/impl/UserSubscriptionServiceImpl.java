@@ -2,8 +2,8 @@ package com.advance.academy.bank.system.domain.impl;
 
 import com.advance.academy.bank.system.data.dao.UserSubscriptionRepository;
 import com.advance.academy.bank.system.data.model.UserSubscription;
-import com.advance.academy.bank.system.data.model.dto.UserSubscriptionSeedDto;
-import com.advance.academy.bank.system.data.model.dto.UserSubscriptionViewDto;
+import com.advance.academy.bank.system.data.model.models.UserSubscriptionSeedDto;
+import com.advance.academy.bank.system.data.model.models.UserSubscriptionViewDto;
 import com.advance.academy.bank.system.domain.UserSubscriptionService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;

@@ -1,7 +1,7 @@
 package com.advance.academy.bank.system.web.controller;
 
-import com.advance.academy.bank.system.data.model.dto.AddressSeedDto;
-import com.advance.academy.bank.system.data.model.dto.AddressViewDto;
+import com.advance.academy.bank.system.data.model.models.AddressSeedDto;
+import com.advance.academy.bank.system.data.model.models.AddressViewDto;
 import com.advance.academy.bank.system.domain.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

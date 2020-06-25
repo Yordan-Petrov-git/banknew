@@ -1,8 +1,8 @@
 package com.advance.academy.bank.system.domain;
 
 
-import com.advance.academy.bank.system.data.model.dto.AddressSeedDto;
-import com.advance.academy.bank.system.data.model.dto.AddressViewDto;
+import com.advance.academy.bank.system.data.model.models.AddressSeedDto;
+import com.advance.academy.bank.system.data.model.models.AddressViewDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

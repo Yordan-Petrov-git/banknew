@@ -1,7 +1,7 @@
 package com.advance.academy.bank.system.domain;
 
-import com.advance.academy.bank.system.data.model.dto.CurrencySeedDto;
-import com.advance.academy.bank.system.data.model.dto.CurrencyViewDto;
+import com.advance.academy.bank.system.data.model.models.CurrencySeedDto;
+import com.advance.academy.bank.system.data.model.models.CurrencyViewDto;
 import org.springframework.stereotype.Service;
 
 

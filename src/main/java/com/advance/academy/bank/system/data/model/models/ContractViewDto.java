@@ -1,4 +1,4 @@
-package com.advance.academy.bank.system.data.model.dto;
+package com.advance.academy.bank.system.data.model.models;
 
 import java.time.Instant;
 

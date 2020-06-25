@@ -1,5 +1,6 @@
-package com.advance.academy.bank.system.data.model.dto;
+package com.advance.academy.bank.system.data.model.models;
 
+import com.advance.academy.bank.system.data.model.Role;
 import com.advance.academy.bank.system.data.model.enums.UserType;
 
 import java.util.HashSet;
@@ -7,6 +8,10 @@ import java.util.Set;
 
 public class UserSeedDto {
 
+
+    private String username;
+    private String password;
+    private String confirmPassword;
     private UserType userType;
     private String firstName;
     private String lastName;
@@ -16,23 +21,37 @@ public class UserSeedDto {
     private Set<AddressSeedDto> addresses = new HashSet<>();
     private Set<AccountSeedDto> accounts = new HashSet<>();
     private Set<UserSubscriptionSeedDto> userSubscriptions = new HashSet<>();
-
+    private Set<RoleServiceModel> authorities = new HashSet<>();
 
     public UserSeedDto() {
     }
 
 
-    public UserSeedDto(UserType userType, String firstName, String lastName, String egn, String phone, String email, Set<AddressSeedDto> addresses, Set<AccountSeedDto> accounts, Set<UserSubscriptionSeedDto> userSubscriptions) {
-        this.userType = userType;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.egn = egn;
-        this.phone = phone;
-        this.email = email;
-        this.addresses = addresses;
-        this.accounts = accounts;
-        this.userSubscriptions = userSubscriptions;
+    public String getUsername() {
+        return this.username;
     }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
+    public String getConfirmPassword() {
+        return this.confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
 
     public UserType getUserType() {
         return this.userType;
@@ -104,5 +123,13 @@ public class UserSeedDto {
 
     public void setUserSubscriptions(Set<UserSubscriptionSeedDto> userSubscriptions) {
         this.userSubscriptions = userSubscriptions;
+    }
+
+    public Set<RoleServiceModel> getAuthorities() {
+        return this.authorities;
+    }
+
+    public void setAuthorities(Set<RoleServiceModel> authorities) {
+        this.authorities = authorities;
     }
 }

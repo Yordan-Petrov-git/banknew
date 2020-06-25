@@ -1,7 +1,7 @@
 package com.advance.academy.bank.system.domain;
 
-import com.advance.academy.bank.system.data.model.dto.CardSeedDto;
-import com.advance.academy.bank.system.data.model.dto.CardViewDto;
+import com.advance.academy.bank.system.data.model.models.CardSeedDto;
+import com.advance.academy.bank.system.data.model.models.CardViewDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

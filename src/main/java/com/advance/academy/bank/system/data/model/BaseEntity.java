@@ -5,7 +5,7 @@ import javax.persistence.*;
 @MappedSuperclass
 public abstract class BaseEntity {
 
-    long id;
+    Long id;
 
     public BaseEntity() {
     }
@@ -17,11 +17,11 @@ public abstract class BaseEntity {
             unique = true,
             updatable = false)
 
-    public long getId() {
+    public Long getId() {
         return this.id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

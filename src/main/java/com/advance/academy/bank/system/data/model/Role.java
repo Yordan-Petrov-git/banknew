@@ -1,10 +1,9 @@
 package com.advance.academy.bank.system.data.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import org.springframework.security.core.GrantedAuthority;
+
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -12,7 +11,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "roles")
-public class Role extends BaseEntity   {
+public class Role extends BaseEntity implements GrantedAuthority {
 
     private String authority;
     private Set<User> users = new HashSet<>();
@@ -23,14 +22,13 @@ public class Role extends BaseEntity   {
     }
 
 
-    public Role(Set<User> users) {
-        this.users = users;
-    }
-
     public Role() {
     }
 
-
+@Override
+@Column(name = "authority",
+        unique = true,
+        nullable = false)
     public String getAuthority() {
         return this.authority;
     }

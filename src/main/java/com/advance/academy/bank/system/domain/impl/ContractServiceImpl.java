@@ -2,8 +2,8 @@ package com.advance.academy.bank.system.domain.impl;
 
 import com.advance.academy.bank.system.data.model.Contract;
 import com.advance.academy.bank.system.data.dao.ContractRepository;
-import com.advance.academy.bank.system.data.model.dto.ContractSeedDto;
-import com.advance.academy.bank.system.data.model.dto.ContractViewDto;
+import com.advance.academy.bank.system.data.model.models.ContractSeedDto;
+import com.advance.academy.bank.system.data.model.models.ContractViewDto;
 import com.advance.academy.bank.system.domain.ContractService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;

@@ -1,10 +1,8 @@
 package com.advance.academy.bank.system.web.controller;
 
-import com.advance.academy.bank.system.data.model.Bank;
-import com.advance.academy.bank.system.data.model.dto.BankSeedDto;
-import com.advance.academy.bank.system.data.model.dto.BankViewDto;
+import com.advance.academy.bank.system.data.model.models.BankSeedDto;
+import com.advance.academy.bank.system.data.model.models.BankViewDto;
 import com.advance.academy.bank.system.domain.BankService;
-import com.advance.academy.bank.system.domain.impl.BankServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

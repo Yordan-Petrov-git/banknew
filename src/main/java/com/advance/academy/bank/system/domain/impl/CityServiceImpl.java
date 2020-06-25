@@ -2,14 +2,17 @@ package com.advance.academy.bank.system.domain.impl;
 
 import com.advance.academy.bank.system.data.model.City;
 import com.advance.academy.bank.system.data.dao.CityRepository;
-import com.advance.academy.bank.system.data.model.dto.CitySeedDto;
-import com.advance.academy.bank.system.data.model.dto.CityViewDto;
+import com.advance.academy.bank.system.data.model.models.CitySeedDto;
+import com.advance.academy.bank.system.data.model.models.CityViewDto;
 import com.advance.academy.bank.system.domain.CityService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+import javax.validation.Valid;
 import java.util.List;
 
 @Service
@@ -26,14 +29,17 @@ public class CityServiceImpl implements CityService {
 
 
     @Override
-    public void createCity(CitySeedDto citySeedDto) {
+    public void createCity(@Valid CitySeedDto citySeedDto) {
         City city = this.modelMapper.map(citySeedDto, City.class);
         this.cityRepository.save(city);
     }
 
     @Override
-    public void updateCity(CitySeedDto citySeedDto) {
+    @Transactional
+    public void updateCity(@Valid CitySeedDto citySeedDto) {
         //TODO ADD UPDATE METHOD
+        City city = this.modelMapper.map(citySeedDto, City.class);
+        this.cityRepository.save(city);
     }
 
 

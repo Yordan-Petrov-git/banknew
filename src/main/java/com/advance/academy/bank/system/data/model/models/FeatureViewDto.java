@@ -1,16 +1,15 @@
-package com.advance.academy.bank.system.data.model.dto;
+package com.advance.academy.bank.system.data.model.models;
 
-public class FeatureSeedDto {
+public class FeatureViewDto {
 
     private String description;
     private Long price;
 
-
-    public FeatureSeedDto() {
+    public FeatureViewDto() {
     }
 
 
-    public FeatureSeedDto(String description, Long price) {
+    public FeatureViewDto(String description, Long price) {
         this.description = description;
         this.price = price;
     }

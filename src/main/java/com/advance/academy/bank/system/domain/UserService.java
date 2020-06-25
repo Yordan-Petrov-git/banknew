@@ -1,13 +1,14 @@
 package com.advance.academy.bank.system.domain;
 
-import com.advance.academy.bank.system.data.model.dto.UserSeedDto;
-import com.advance.academy.bank.system.data.model.dto.UserViewDto;
+import com.advance.academy.bank.system.data.model.models.UserSeedDto;
+import com.advance.academy.bank.system.data.model.models.UserViewDto;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public interface UserService {
+public interface UserService extends UserDetailsService {
 
     UserSeedDto createUser(UserSeedDto user);
 

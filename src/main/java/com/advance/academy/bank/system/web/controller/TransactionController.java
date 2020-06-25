@@ -1,8 +1,7 @@
 package com.advance.academy.bank.system.web.controller;
 
-import com.advance.academy.bank.system.data.model.Transaction;
-import com.advance.academy.bank.system.data.model.dto.TransactionSeedDto;
-import com.advance.academy.bank.system.data.model.dto.TransactionViewDto;
+import com.advance.academy.bank.system.data.model.models.TransactionSeedDto;
+import com.advance.academy.bank.system.data.model.models.TransactionViewDto;
 import com.advance.academy.bank.system.domain.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

@@ -1,9 +1,12 @@
 package com.advance.academy.bank.system.web.controller;
 
-import com.advance.academy.bank.system.data.model.dto.CitySeedDto;
-import com.advance.academy.bank.system.data.model.dto.CityViewDto;
+import com.advance.academy.bank.system.data.model.City;
+import com.advance.academy.bank.system.data.model.models.CitySeedDto;
+import com.advance.academy.bank.system.data.model.models.CityViewDto;
 import com.advance.academy.bank.system.domain.CityService;
+import com.advance.academy.bank.system.exeption.InvalidEntityException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,17 +23,31 @@ public class CityController {
     }
 
 
-    @PostMapping
+    @PostMapping()
     public void createCity(@RequestBody CitySeedDto citySeedDto) {
         cityService.createCity(citySeedDto);
     }
 
-    @PutMapping
-    public void updateCity(@RequestBody CitySeedDto citySeedDto) {
-        cityService.updateCity(citySeedDto);
+    @PutMapping("/{id}")
+    public void updateCity(@PathVariable Long id, @RequestBody CitySeedDto citySeedDto) {
+        //   cityService.updateCity(citySeedDto);
+
+
+        if (!citySeedDto.getId().equals(id)) {
+            throw new InvalidEntityException(
+                    String.format("There is no City with ID %s ", id));
+        }
+
+        this.cityService.updateCity(citySeedDto);
+
+
+        // log.info("User updated: {}", updated);
+        //  return ResponseEntity.ok(updated);
+
+
     }
 
-    @GetMapping
+    @GetMapping()
     public List<CityViewDto> getCities() {
         return cityService.getAllCities();
     }

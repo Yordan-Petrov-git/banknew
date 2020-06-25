@@ -2,8 +2,8 @@ package com.advance.academy.bank.system.domain.impl;
 
 import com.advance.academy.bank.system.data.dao.ContractDerailRepository;
 import com.advance.academy.bank.system.data.model.ContractDetail;
-import com.advance.academy.bank.system.data.model.dto.ContractDetailSeedDto;
-import com.advance.academy.bank.system.data.model.dto.ContractDetailViewDto;
+import com.advance.academy.bank.system.data.model.models.ContractDetailSeedDto;
+import com.advance.academy.bank.system.data.model.models.ContractDetailViewDto;
 import com.advance.academy.bank.system.domain.ContractDetailService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;

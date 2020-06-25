@@ -1,21 +1,22 @@
-package com.advance.academy.bank.system.data.model.dto;
+package com.advance.academy.bank.system.data.model.models;
+
 
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class FeaturePackageViewDto {
+public class FeaturePackageSeedDto {
 
     private String description;
     private String name;
     private Long price;
     private Set<FeatureViewDto> features = new HashSet<>();
 
-    public FeaturePackageViewDto() {
+    public FeaturePackageSeedDto() {
 
     }
 
-    public FeaturePackageViewDto(String description, String name, Long price, Set<FeatureViewDto> features) {
+    public FeaturePackageSeedDto(String description, String name, Long price, Set<FeatureViewDto> features) {
         this.description = description;
         this.name = name;
         this.price = price;
@@ -54,3 +55,6 @@ public class FeaturePackageViewDto {
         this.features = features;
     }
 }
+
+
+

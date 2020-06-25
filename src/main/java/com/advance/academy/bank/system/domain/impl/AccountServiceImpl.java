@@ -2,8 +2,8 @@ package com.advance.academy.bank.system.domain.impl;
 
 import com.advance.academy.bank.system.data.model.Account;
 import com.advance.academy.bank.system.data.dao.AccountRepository;
-import com.advance.academy.bank.system.data.model.dto.AccountSeedDto;
-import com.advance.academy.bank.system.data.model.dto.AccountViewDto;
+import com.advance.academy.bank.system.data.model.models.AccountSeedDto;
+import com.advance.academy.bank.system.data.model.models.AccountViewDto;
 import com.advance.academy.bank.system.domain.AccountService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;

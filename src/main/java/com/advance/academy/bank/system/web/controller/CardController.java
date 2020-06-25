@@ -1,8 +1,7 @@
 package com.advance.academy.bank.system.web.controller;
 
-import com.advance.academy.bank.system.data.model.Card;
-import com.advance.academy.bank.system.data.model.dto.CardSeedDto;
-import com.advance.academy.bank.system.data.model.dto.CardViewDto;
+import com.advance.academy.bank.system.data.model.models.CardSeedDto;
+import com.advance.academy.bank.system.data.model.models.CardViewDto;
 import com.advance.academy.bank.system.domain.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

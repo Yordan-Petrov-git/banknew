@@ -1,9 +1,11 @@
-package com.advance.academy.bank.system.data.model.dto;
+package com.advance.academy.bank.system.data.model.models;
 
 public class CitySeedDto {
 
+    private Long id;
     private String cityName;
     private String postalCode;
+
 
     public CitySeedDto(String cityName, String postalCode) {
         this.cityName = cityName;
@@ -11,6 +13,10 @@ public class CitySeedDto {
     }
 
     public CitySeedDto() {
+    }
+
+    public Long getId() {
+        return this.id;
     }
 
     public String getCityName() {

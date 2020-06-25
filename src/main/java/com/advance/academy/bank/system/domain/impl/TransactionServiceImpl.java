@@ -1,10 +1,7 @@
 package com.advance.academy.bank.system.domain.impl;
 
-import com.advance.academy.bank.system.data.model.User;
-import com.advance.academy.bank.system.data.model.dto.CityViewDto;
-import com.advance.academy.bank.system.data.model.dto.TransactionSeedDto;
-import com.advance.academy.bank.system.data.model.dto.TransactionViewDto;
-import com.advance.academy.bank.system.data.model.dto.UserViewDto;
+import com.advance.academy.bank.system.data.model.models.TransactionSeedDto;
+import com.advance.academy.bank.system.data.model.models.TransactionViewDto;
 import com.advance.academy.bank.system.exeption.IllegalBankOperationException;
 import com.advance.academy.bank.system.data.model.Account;
 import com.advance.academy.bank.system.data.model.Transaction;

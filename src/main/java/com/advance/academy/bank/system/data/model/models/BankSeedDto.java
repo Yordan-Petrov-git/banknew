@@ -1,6 +1,4 @@
-package com.advance.academy.bank.system.data.model.dto;
-
-import com.advance.academy.bank.system.data.model.Address;
+package com.advance.academy.bank.system.data.model.models;
 
 public class BankSeedDto {
 

@@ -1,7 +1,7 @@
 package com.advance.academy.bank.system.domain;
 
-import com.advance.academy.bank.system.data.model.dto.TransactionSeedDto;
-import com.advance.academy.bank.system.data.model.dto.TransactionViewDto;
+import com.advance.academy.bank.system.data.model.models.TransactionSeedDto;
+import com.advance.academy.bank.system.data.model.models.TransactionViewDto;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;

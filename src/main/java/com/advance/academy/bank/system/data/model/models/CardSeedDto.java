@@ -1,10 +1,10 @@
-package com.advance.academy.bank.system.data.model.dto;
+package com.advance.academy.bank.system.data.model.models;
 
 import com.advance.academy.bank.system.data.model.enums.CardType;
 
 import java.time.Instant;
 
-public class CardViewDto {
+public class CardSeedDto {
 
     private CardType cardType = CardType.NONE;
     private Instant expirationDate;
@@ -13,10 +13,10 @@ public class CardViewDto {
     private AccountViewDto account;
     private boolean isActive = false;
 
-    public CardViewDto() {
+    public CardSeedDto() {
     }
 
-    public CardViewDto(CardType cardType, Instant expirationDate, String cvvCode, String pinCode, AccountViewDto account, boolean isActive) {
+    public CardSeedDto(CardType cardType, Instant expirationDate, String cvvCode, String pinCode, AccountViewDto account, boolean isActive) {
         this.cardType = cardType;
         this.expirationDate = expirationDate;
         this.cvvCode = cvvCode;
@@ -72,5 +72,4 @@ public class CardViewDto {
     public void setActive(boolean active) {
         isActive = active;
     }
-
 }
