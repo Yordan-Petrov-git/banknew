@@ -1,4 +1,4 @@
-package com.advance.academy.bank.system.web.controller;
+package com.advance.academy.bank.system.rest.controller;
 
 import com.advance.academy.bank.system.data.models.AddressSeedDto;
 import com.advance.academy.bank.system.data.models.AddressViewDto;

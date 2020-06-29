@@ -1,4 +1,4 @@
-package com.advance.academy.bank.system.web.controller;
+package com.advance.academy.bank.system.rest.controller;
 
 import com.advance.academy.bank.system.data.models.BankSeedDto;
 import com.advance.academy.bank.system.data.models.BankViewDto;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/banks")
+    @RequestMapping("api/banks")
 public class BankController {
 
     private final BankService bankService;
@@ -36,9 +36,9 @@ public class BankController {
 //        }
 //}
 
-    @PutMapping
-    public void updateBank(@RequestBody BankSeedDto bank) {
-
+    @PutMapping("/{id}")
+    public void updateBank(@PathVariable("id") Long id,@RequestBody BankSeedDto bank) {
+        bankService.updateBank(bank);
     }
 
     @GetMapping

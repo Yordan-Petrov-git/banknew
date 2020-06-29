@@ -32,8 +32,11 @@ public class BankServiceImpl implements BankService {
     }
 
     @Override
-    public void updateBank(BankSeedDto bank) {
-        //TODO ADD UPDATE
+    public void updateBank(BankSeedDto bankSeedDto) {
+
+        Bank bank = modelMapper.map(bankSeedDto, Bank.class);
+
+        bankRepository.save(bank);
     }
 
     @Override
